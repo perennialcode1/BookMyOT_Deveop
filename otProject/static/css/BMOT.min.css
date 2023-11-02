@@ -1,0 +1,181 @@
+.red-table thead tr {
+    background: #c63400;
+    color: #fff;
+}
+
+.red-table tbody tr:nth-child(odd) {
+    background: #fff;
+}
+
+.red-table tbody tr:nth-child(even) {
+    background: #dfdfdf;
+}
+
+.red-table tbody tr:hover {
+    background-color: #fffacd;
+}
+
+.red-table td {
+    border-top: 0!important;
+    border-right: 1px solid #fff!important;
+}
+
+.blue-table thead tr {
+    background: #0c5094;
+    color: #fff;
+}
+
+.blue-table tbody tr:nth-child(odd) {
+    background: #fff;
+}
+
+.blue-table tbody tr:nth-child(even) {
+    background: #d6eeee;
+}
+
+.blue-table tbody tr:hover {
+    background-color: #d6eeee;
+}
+
+.blue-table td {
+    border-top: 0!important;
+    border-right: 1px solid #fff!important;
+}
+
+.purple-table thead tr {
+    background: #763def;
+    color: #fff;
+}
+
+.purple-table tbody tr:nth-child(odd) {
+    background: #fff;
+}
+
+.purple-table tbody tr:nth-child(even) {
+    background: #d6eeee;
+}
+
+.purple-table tbody tr:hover {
+    background-color: #d6eeee;
+}
+
+.purple-table td {
+    border-top: 0!important;
+    border-right: 1px solid #fff!important;
+}
+
+.elipses-text {
+    white-space: nowrap;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-item.here>.menu-link .menu-icon-success {
+    margin: 5px;
+}
+
+.menu-item.here>.menu-link .menu-icon-success i {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.menu-item>.menu-link .menu-icon-success {
+    margin: 5px;
+}
+
+.menu-item>.menu-link .menu-icon-success i {
+    color: #2e8b57;
+    font-size: 2rem;
+}
+
+.menu-item.here>.menu-link .menu-icon-dark {
+    margin: 5px;
+}
+
+.menu-item.here>.menu-link .menu-icon-dark i {
+    margin: 5px;
+    color: #fff;
+    font-size: 2rem;
+}
+
+.menu-item>.menu-link .menu-icon-dark {
+    margin: 5px;
+}
+
+.menu-item>.menu-link .menu-icon-dark i {
+    color: #000;
+    font-size: 2rem;
+}
+
+.menu-item.here>.menu-link .menu-icon-danger {
+    margin: 5px;
+}
+
+.menu-item.here>.menu-link .menu-icon-danger i {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.menu-item>.menu-link .menu-icon-danger {
+    margin: 5px;
+}
+
+.menu-item>.menu-link .menu-icon-danger i {
+    color: #f1416c;
+    font-size: 2rem;
+}
+
+.menu-item.here>.menu-link .menu-icon-info {
+    margin: 5px;
+}
+
+.menu-item.here>.menu-link .menu-icon-info i {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.menu-item>.menu-link .menu-icon-info {
+    margin: 5px;
+}
+
+.menu-item>.menu-link .menu-icon-info i {
+    color: #6495ed;
+    font-size: 2rem;
+}
+
+.menu-item.here>.menu-link .menu-icon-primary {
+    margin: 5px;
+}
+
+.menu-item.here>.menu-link .menu-icon-primary i {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.menu-item>.menu-link .menu-icon-primary {
+    margin: 5px;
+}
+
+.menu-item>.menu-link .menu-icon-primary i {
+    color: #7239ea;
+    font-size: 2rem;
+}
+
+.menu-item.here>.menu-link .menu-icon-warning {
+    margin: 5px;
+}
+
+.menu-item.here>.menu-link .menu-icon-warning i {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.menu-item>.menu-link .menu-icon-warning {
+    margin: 5px;
+}
+
+.menu-item>.menu-link .menu-icon-warning i {
+    color: #b02a37;
+    font-size: 2rem;
+}
