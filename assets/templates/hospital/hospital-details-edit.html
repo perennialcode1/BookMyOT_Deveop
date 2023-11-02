@@ -1,0 +1,201 @@
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+    
+
+
+<div b-1mtsuay2f9 class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+    <div b-1mtsuay2f9 class="app-container container-xxl d-flex">
+        <div b-1mtsuay2f9 class="app-main flex-column flex-row-fluid" id="kt_app_main">
+            <div b-1mtsuay2f9 class="d-flex flex-column flex-column-fluid">
+              
+                <div id="kt_app_toolbar" class="app-toolbar pt-4 pt-lg-7 mb-n2 mb-lg-n3">
+<div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack flex-row-fluid">
+<div class="d-flex flex-stack flex-row-fluid">
+<div class="d-flex flex-column flex-row-fluid">
+    <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-1 mb-lg-3 me-2">
+        <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+            <a href="/" class="text-white">
+                <i class="fonticon-home text-gray-700 fs-3"></i>
+            </a>
+            <li class="breadcrumb-item">
+                <span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="currentColor" />
+                    </svg>
+                </span>
+            </li>
+            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Hospitals</li>
+            <li class="breadcrumb-item">
+                <span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="currentColor" />
+                    </svg>
+                </span>
+            </li>
+            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Edit</li>
+        </ul>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+        <a href="{% url 'hospital' %}" class="btn btn-flex btn-sm btn-body h-35px bg-body fw-bold">
+            <i class="bi bi-arrow-left"></i>Go back to hospitals
+        </a>
+        
+    </div>
+</div>
+</div>
+</div>
+       
+</div>
+</div>
+</div>
+</div>
+<div class="app-container  container-xxl d-flex ">
+    <div id="kt_app_sidebar" class="app-sidebar align-self-start" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '225px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+        <div class="card flex-grow-1 py-5" data-kt-sticky="true" data-kt-sticky-name="app-sidebar-menu-sticky" data-kt-sticky-offset="{default: false, xl: '500px'}" data-kt-sticky-width="225px" data-kt-sticky-left="auto" data-kt-sticky-top="125px" data-kt-sticky-animation="false" data-kt-sticky-zindex="95">
+            <div class="hover-scroll-y px-1 px-lg-5" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="320px" data-kt-scroll-dependencies="#kt_app_header, #kt_app_toolbar, #kt_app_footer" data-kt-scroll-wrappers="#kt_app_main" data-kt-scroll-offset="5px" style="height: 362px;">
+                <div id="kt_app_sidebar_menu" data-kt-menu="true" class="
+						menu
+						menu-sub-indention
+						menu-rounded
+						menu-column
+						menu-active-bg
+						menu-title-gray-600
+						menu-icon-gray-400
+						menu-state-primary
+						menu-arrow-gray-500
+						fw-semibold
+						fs-6
+					">
+                   
+                    <div class="menu-item" onclick="buttonFoo()">
+                        <a class="menu-link" href="{% url 'hospital_profile_edit' hosid %}">
+                            <span class="menu-icon"><i class="bi bi-list text-primary"></i></span>
+                            <span class="menu-title">Profile</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'hospital_details_edit' hosid %}">
+                            <span class="menu-icon"><i class="bi bi-building text-success"></i></span>
+                            <span class="menu-title">Hospital Details</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'hospital_address_edit' hosid %}">
+                            <span class="menu-icon"><i class="bi bi-card-heading text-info"></i></span>
+                            <span class="menu-title">Address</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'hospital_status_edit' hosid %}">
+                            <span class="menu-icon"><i class="bi bi-check-circle text-dark"></i></span>
+                            <span class="menu-title">Status</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'hospital_surgeons_edit' hosid %}">
+                            <span class="menu-icon"><i class="bi bi-file-person text-success"></i></span>
+                            <span class="menu-title">Surgeons</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'hospital_equipment_edit' hosid %}">
+                            <span class="menu-icon"><i class="fa fa-toolbox text-primary"></i></span>
+                            <span class="menu-title">Equipments</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+        <div class="d-flex flex-column flex-column-fluid">
+            <div id="kt_app_content" class="app-content ">
+                <form method = 'post' enctype="multipart/form-data" class="form d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework">
+                    {% csrf_token %}
+                    <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10 me-lg-10">
+                        <div class="d-flex flex-column gap-7 gap-lg-10">
+                            <div id="hospitalProfile" class="card card-flush py-4">
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        <h2>Hospital Information</h2>
+                                    </div>
+                                </div>
+                                <div class="card-body pt-0">
+                                    <div class="d-flex flex-wrap gap-5">
+                                        <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                                            <label class="required form-label">Reg. Number</label>
+                                            <input type="text" name="txtRegNumber" class="form-control mb-2" value="{{regnum}}" required>
+                                        </div>
+                                        <div class="fv-row w-100 flex-md-root">
+                                            <label class="form-label">ESTD Year</label>
+                                            <input type="text" id="txtESTDYear" name="txtESTDYear" class="form-control mb-2" value="{{estdyear}}" required>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-5">
+                                        <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                                            <label class="required form-label">Contact Number</label>
+                                            <input type="tel" id="txtContactNumber" maxlength="10" minlength="10" name="txtContactNumber" class="form-control mb-2" value="{{contactno}}" required>
+                                        </div>
+                                        <div class="fv-row w-100 flex-md-root">
+                                            <label class="form-label">Contact Person</label>
+                                            <input type="text" id="txtContactPerson" name="txtContactPerson" class="form-control mb-2" value="{{contactperson}}" required>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-5">
+                                        <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                                            <label class="form-label">Quality accreditations</label>
+                                            <input type="text" id="txtQualityaccreditations" name="txtQualityaccreditations" class="form-control mb-2" value="{{qualityaccreditations}}" required>
+                                        </div>
+                                        <div class="fv-row w-100 flex-md-root">
+                                            <label class="form-label">Name of director</label>
+                                            <input type="text" id="txtNameofdirector" name="txtNameofdirector" class="form-control mb-2" value="{{nameofdirector}}" required>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-5">
+                                        <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                                            <label class="required form-label">Specialities</label>
+                                            <!-- <div>
+                                                <select name="slSpecialities"  id="slSpecialities" multiple="multiple" class="form-select" data-allow-clear="true" data-control="select2" data-value="Select Specialities">
+                                                </select>
+                                            </div> -->
+                                            <input type="text" name="Specialities" class="form-control" value="{{specialityfield}}" required>
+                                        </div>
+                                        <div class="fv-row w-100 flex-md-root">
+                                            <label class="required form-label">OT Count</label>
+                                            <input type="text" id="txtOTCount" name="txtOTCount" class="form-control mb-2" value="{{otcount}}">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-5">
+                                        <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div id="hospitalActions" class="text-end">
+                            <a href="{% url 'hospital' %}" class="btn btn-light me-5">
+                                Cancel
+                            </a>
+                            <button type="submit" id="btnSaveHospital" class="btn btn-primary">
+                                <span class="indicator-label">
+                                    Save Changes
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

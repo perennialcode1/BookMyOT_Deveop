@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+    
+    {% include "doctors/doctors-view-sidebar.html" %}
+    {% block content_view %}
+{% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> {% endcomment %}
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+<div class="d-flex flex-column flex-column-fluid">
+    <div id="paneAwards" style="margin-top:31px" class="card hide card-flush py-4">
+        <div class="card-header">
+            <div class="card-title">
+                <h2>
+                    <span class="menu-icon">
+                        <i class="bi bi-geo-fill fs-3 text-info"></i>
+                    </span>
+                    Near by Hospitals
+                </h2>
+            </div>
+        </div>
+        <div class="card-body pt-0">
+            <table class="table table-striped table-bordered blue-table" id="ot_table">
+                <thead>
+                    <tr class="text-start fw-bold fs-7 text-uppercase gs-0">
+                        <th class="text-center w-10px pe-2 sorting_disabled" rowspan="1" colspan="1" style="width: 2%;">#</th>
+                        <th class="text-center min-w-50px sorting" tabindex="0"
+                            aria-controls="kt_ecommerce_products_table" rowspan="1"
+                            colspan="1"
+                            aria-label="SKU: activate to sort column ascending"
+                            style="width: 10%;">Number</th>
+                        <th class="text-center min-w-100px sorting" tabindex="0"
+                            aria-controls="kt_ecommerce_products_table" rowspan="1"
+                            colspan="1"
+                            aria-label="SKU: activate to sort column ascending"
+                            style="width: 20%;">Name</th>
+                        <th class="text-center min-w-70px sorting" tabindex="0"
+                            aria-controls="kt_ecommerce_products_table" rowspan="1"
+                            colspan="1"
+                            aria-label="Qty: activate to sort column ascending"
+                            style="width: 12%;">Mobile</th>
+                        <th class="text-center min-w-10px sorting" tabindex="0"
+                            aria-controls="kt_ecommerce_products_table" rowspan="1"
+                            colspan="1"
+                            aria-label="Qty: activate to sort column ascending"
+                            style="width: 10%;">ESTD Year</th>
+                        <th class="text-center min-w-150px sorting" tabindex="0"
+                            aria-controls="kt_ecommerce_products_table" rowspan="1"
+                            colspan="1"
+                            aria-label="Qty: activate to sort column ascending"
+                            style="width: 4%;">CITY</th>
+                        <th class="text-center min-w-100px sorting" tabindex="0"
+                            aria-controls="kt_ecommerce_products_table" rowspan="1"
+                            colspan="1"
+                            aria-label="Qty: activate to sort column ascending"
+                            style="width: 55%;">Address</th>
+                        <th class="text-center min-w-100px sorting" tabindex="0"
+                            aria-controls="kt_ecommerce_products_table" rowspan="1"
+                            colspan="1"
+                            aria-label="Qty: activate to sort column ascending"
+                            style="width: 10%;">Status</th>
+                    </tr>
+                </thead>
+               <tbody class="fw-semibold">
+                {% for i in data %}
+                <tr class="odd text-center" caseid="970" patientname="jimmy" surgonname="Dr. Suni Kumar test">
+                    <td>
+                        {{forloop.counter}}
+                    </td>
+                    <td class="pe-0">
+                        <span class="fw-bold">{{i.hosnumber}}</span>
+                    </td>
+                    <td class="pe-0">
+                        <span class="fw-bold PatientName">{{i.hospitalname}}</span>
+                        <input class="SurgeryId" data-val="true" data-val-required="The caseid field is required." id="z0__caseid" name="[0].caseid" type="hidden" value="970">
+                    </td>
+                    <td class="pe-0">
+                        <span class="fw-bold">{{i.mobile}}</span>
+                    </td>
+
+                    <td class="pe-0">
+                        <span class="fw-bold">{{i.estdyear}}</span>
+                    </td>
+                    <td class="pe-0">
+
+                        <span class="fw-bold">{{i.city}}</span>
+                    </td>
+                    <td class="pe-0">
+                        {% if i.address == none %}
+                            <span>----</span>
+                            {% else %}
+                            <span class="fw-bold">{{i.address}} </span>
+                        {% endif %}
+                    </td>
+                    <td class="pe-0  elipses-text">
+                        {% if i.status == 1 %}
+                            <span class="fw-bold fs-5 SurgeryName badge badge-info text-center" style="width: 78px; display: inline-block; text-align: center;">New</span>
+                        
+                        {% elif i.status == 2 %}
+                            <span class="fw-bold fs-5 SurgeryName badge badge-success text-center" style="width:78px; display: inline-block; text-align: center;">Verified</span>
+                        {% else %}
+                            <span class="fw-bold fs-5 SurgeryName badge badge-danger text-center" style="width:78px; display: inline-block; text-align: center;">Rejected</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                   {% endfor %}
+               </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content_view %}
+{% endblock %}

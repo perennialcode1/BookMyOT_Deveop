@@ -1,0 +1,119 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+        <div id="kt_app_toolbar" class="app-toolbar pt-4 pt-lg-7 mb-n2 mb-lg-n3">
+            <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack flex-row-fluid">
+                <div class="d-flex flex-stack flex-row-fluid">
+                    <div class="d-flex flex-column flex-row-fluid">
+                        <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-1 mb-lg-3 me-2">
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                            </li>
+                            <li class="breadcrumb-item">
+                                
+                            </li>
+                            <span b-1mtsuay2f9 class="menu-icon-dark">
+                                <i class="fa-solid fa-home me-2"></i></span>Doctors
+                            <li class="breadcrumb-item">
+                                <span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="currentColor"/>
+                                    </svg>
+                                </span>
+                            </li>
+                            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Edit</li>
+                        </ul>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <a href="{% url 'doctors' %}" class="btn btn-flex btn-sm btn-body h-35px bg-body fw-bold">
+                            <i class="bi bi-arrow-left"></i>
+                            Go back to doctors
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'doctors/sidebar.html' %}
+        <div class="container-xxl d-flex">
+            <!--begin::Sidebar-->
+            {% block sidebar %}
+            
+            <div class="mb-5 container-xxl mt-5">
+                <form method='post'class="mt-5 col-9" >
+                    {% csrf_token %}
+                    <div id="paneAddress" class="mt-5 card card-flush py-4 card123">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <h2>
+                                    <span class="menu-icon">
+                                        <i class="bi bi-person-circle fs-1 text-info"></i>
+                                    </span>
+                                    Address
+
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="card-body pt-0">
+                            <div class="d-flex flex-wrap gap-5">
+                                <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                                    <label class="required form-label">Address</label>
+                                    <input type="text" id="txtHospitalName" name="address" class="form-control mb-2" value="{{address}}">
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <div class="fv-row w-100 flex-md-root">
+                                    <label class="required form-label">City</label>
+                                    <input type="text" id="txtUsername" name="city" class="form-control mb-2" value="{{city}}" required>
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-wrap gap-5">
+                                <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                                    <label class="required form-label">Landmark </label>
+                                    <input type="text" id="txtFirstName" minlength="6" name="landmark" class="form-control mb-2" value="{{landmark}}" required>
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                                    <label class="required form-label">Latitude</label>
+                                    <input type="text" id="txtFirstName" name="lati" class="form-control mb-2" value="{{lat}}" readonly>  
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-wrap gap-5">
+                                <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                                    <label class="required form-label">Longitude</label>
+                                    <input type="text" id="txtMobile" name="long" class="form-control mb-2" value="{{long}}" readonly>
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <div class="fv-row w-100 flex-md-root">
+                                    <label class="required form-label">Pincode</label>
+                                    <input type="number" id="txtMobile" maxlength="6" minlength= "6" name="pin" class="form-control mb-2" value="{{pincode}}" required>
+                                    
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-wrap gap-5">
+                                <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                                    <label class="required form-label">State</label>
+                                    <input type="text" id="txtMobile" name="state" class="form-control mb-2" value="{{state}}" required>
+                                    {% comment %} <div class="fv-plugins-message-container invalid-feedback"></div> {% endcomment %}
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                    <div class="mt-3 d-flex justify-content-end">
+                        <a href="{% url 'doctors' %}" class="btn btn-light me-5">Cancel</a>
+                        <button type="sumbit" class="btn btn-primary">
+                            <span class="indicator-label">Save Changes</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            {% endblock sidebar %}
+        </div>
+        {% endblock %}
+
+    </div>
+

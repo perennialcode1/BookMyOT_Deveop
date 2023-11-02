@@ -1,0 +1,528 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div id="kt_app_toolbar" class="app-toolbar pt-4 pt-lg-7 mb-n2 mb-lg-n3">
+    <div id="kt_app_toolbar_container" class="container-xxl d-flex flex-stack flex-row-fluid">
+        <div class="d-flex flex-stack flex-row-fluid">
+            <div class="d-flex flex-column flex-row-fluid">
+                <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-1 mb-lg-3 me-2">
+                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                        <a href="/" class="text-white">
+                            <i class="fonticon-home text-gray-700 fs-3"></i>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </span>
+                    </li>
+                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Surgeries</li>
+                    <li class="breadcrumb-item">
+                        <span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </span>
+                    </li>
+                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Edit</li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <a href="{% url 'surgeries_list' %}" class="btn btn-flex btn-sm btn-body h-35px bg-body fw-bold">
+                    <i class="bi bi-arrow-left"></i>Go back to surgeries
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-xxl d-flex ">
+    <div id="kt_app_sidebar" class="app-sidebar align-self-start" data-kt-drawer="true"
+        data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}"
+        data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '225px'}"
+        data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+        <div class="card flex-grow-1 py-5" data-kt-sticky="true" data-kt-sticky-name="app-sidebar-menu-sticky"
+            data-kt-sticky-offset="{default: false, xl: '500px'}" data-kt-sticky-width="225px"
+            data-kt-sticky-left="auto" data-kt-sticky-top="125px" data-kt-sticky-animation="false"
+            data-kt-sticky-zindex="95">
+            <div class="hover-scroll-y px-1 px-lg-5" data-kt-scroll="true"
+                data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto"
+                data-kt-scroll-dependencies="#kt_app_header, #kt_app_toolbar, #kt_app_footer"
+                data-kt-scroll-wrappers="#kt_app_main" data-kt-scroll-offset="5px" style="height: 362px;">
+                <div id="kt_app_sidebar_menu" data-kt-menu="true" class="
+						menu
+						menu-sub-indention
+						menu-rounded
+						menu-column
+						menu-active-bg
+						menu-title-gray-600
+						menu-icon-gray-400
+						menu-state-primary
+						menu-arrow-gray-500
+						fw-semibold
+						fs-6
+					">
+                    <div class="menu-item">
+                        <a href="{% url 'surgeries_edit_btn' caseid %}" class="menu-link" id="SurgeryDetailsBtn">
+                            <span class="menu-icon"><i class="bi bi-heart-pulse text-primary"></i></span>
+                            <span class="menu-title">Details</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="{% url 'surgery_patient_diagnostics_edit' caseid %}" class="menu-link" id="SurgeryReportsBtn">
+                            <span class="menu-icon"><i class="bi bi-clipboard2-pulse text-success"></i></span>
+                            <span class="menu-title">Patient Diagnostics</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="{% url 'surgery_physician_notes_edit' caseid %}" class="menu-link" id="PhysicianNotesBtn">
+                            <span class="menu-icon"><i class="bi bi-prescription text-info"></i></span>
+                            <span class="menu-title">Physician Notes</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="PhysicianNotes" style="" class="card hide card-flush py-4 col-9 mt-9">
+        <div class="card-header">
+
+            <h2 class="card-title">Details</h2>
+
+
+            <div class="card-toolbar">
+                <button type="button" id="btnDownloadPdf" class="btn btn-info">Download</button>
+            </div>
+        </div>
+        <div class="card-body pt-0">
+            <form id="surgeryNotesForm">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <h4><u>Patient Details</u> </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Patient Name</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblPatientName">{{PatientName}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Gender</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblGender">{{Gender}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Start time</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblStarttime">{{StartTime}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Patient diagnostics</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblPatientdiagnostics">{{PatientDiagnostics}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Age</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblAge">{{Age}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Notes Date</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblNotesDate">{{NoteDate}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">End time</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblEndtime">{{EndTime}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <br>
+                        <br>
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <h4><u>Viral</u> </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Blood pressure</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblBloodpressure">{{BloodPressure}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Heart rate</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblHeartrate">{{HeartRate}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Oxygen Saturation</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblOxygensaturation">{{OxygenSaturation}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Respiratory rate</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblRespiratoryrate">{{RespiratoryRate}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Temperature</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblTemperature">{{Temperature}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <h4><u>Final Vital</u> </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Blood pressure</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblFinalBloodpressure">{{BloodPressure}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Heart rate</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblFinalHeartrate">{{HeartRate}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Oxygen saturation</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblFinalOxygensaturation"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Respiratory rate</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblFinalRespiratoryrate">{{OxygenSaturation}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">Temperature</div>
+                                    </div>
+                                    <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblFinalTemperature">{{Temperature}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <br>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3"><b>Consultant Fee</b></div>
+                                    </div>
+                                    <div class="col-xl-6 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblConsultantFee"></label>
+                                            <span class="pl-5" id="btnPrices">
+                                                <i class="fa fa-question-circle text-info"
+                                                    style="font-size: 1.2rem !important;" aria-hidden="true"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id="div_Prices" class="d-none">
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="fs-6 fw-semibold mt-2 mb-3">Anaethesia</div>
+                                        </div>
+                                        <div class="col-xl-6 fv-row fv-plugins-icon-container">
+                                            <div class="fs-6 fw-semibold mt-2 mb-3">
+                                                <label id="lblAnaethesiaPrice">{{AnaethesiaPrice}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="fs-6 fw-semibold mt-2 mb-3">Spl Surgery</div>
+                                        </div>
+                                        <div class="col-xl-6 fv-row fv-plugins-icon-container">
+                                            <div class="fs-6 fw-semibold mt-2 mb-3">
+                                                <label id="lblsplsurgeryPrice">{{splsurgeryPrice}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="fs-6 fw-semibold mt-2 mb-3">Pre Exisitng Condition</div>
+                                        </div>
+                                        <div class="col-xl-6 fv-row fv-plugins-icon-container">
+                                            <div class="fs-6 fw-semibold mt-2 mb-3">
+                                                <label id="lblPreExisitngConditionPrice">{{PreExisitngConditionPrice}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="fs-6  mt-2 mb-3">Comorbid conditions</div>
+                                        </div>
+                                        <div class="col-xl-6 fv-row fv-plugins-icon-container">
+                                            <div class="fs-6  mt-2 mb-3">
+                                                <label id="lblComorbidconditionsPrice">{{ComorbidconditionsPrice}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="fs-6  mt-2 mb-3">Vital</div>
+                                        </div>
+                                        <div class="col-xl-6 fv-row fv-plugins-icon-container">
+                                            <div class="fs-6  mt-2 mb-3">
+                                                <label id="lblvitalprice">{{vitalprice}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="fs-6 fw-semibold mt-2 mb-3">TNX Charges</div>
+                                        </div>
+                                        <div class="col-xl-6 fv-row fv-plugins-icon-container">
+                                            <div class="fs-6 fw-semibold mt-2 mb-3">
+                                                <label id="lblcharges"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="fs-6 fw-semibold mt-2 mb-3">TDS Deductions</div>
+                                        </div>
+                                        <div class="col-xl-6 fv-row fv-plugins-icon-container">
+                                            <div class="fs-6 fw-semibold mt-2 mb-3">
+                                                <label id="lbltdsdeductions">{{tdsdeductions}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3"><b>Approximate Settlement Amount</b>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 fv-row fv-plugins-icon-container">
+                                        <div class="fs-6 fw-semibold mt-2 mb-3">
+                                            <label id="lblSettlementAmount">{{apsamount}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-xl-2">
+                                <div class="fs-6 fw-semibold mt-2 mb-3"><b>Notes</b></div>
+                            </div>
+                            <div class="col-xl-8 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblNotes">{{Note1}}</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-xl-2">
+                                <div class="fs-6 fw-semibold mt-2 mb-3"><b>Documents:</b></div>
+                            </div>
+                        </div>
+                        <div class="row" id="div_Documents">
+                            <div id="lblDocumentPath">{{documentpath}}</div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-5">
+                        <img id="phnotesimg">
+                    </div>
+                </div>
+
+                <div id="physicianNotesDiv"></div>
+                <div class="row mb-8">
+                    <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                        <label class="required form-label">Hospital Notes</label>
+                        <textarea id="txtPhysicianNotes" name="txtPhysicianNotes" class="form-control mb-8" rows="5" readonly></textarea>
+                    </div>
+                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                </div>
+                <script>
+                    $('#btnPrices').on('click', function () {
+                        $("#div_Prices").toggleClass('d-none');
+                    });
+                </script>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            // MULTIPLE "ID's" ARE SEPARATED BY COMMAS.
+            $(".decimalonly").keypress(function (event) {
+                return isNumber(event, this);
+            });
+            $('#surgerydate').val(moment($('#surgerydate').val()).format("DD/MM/yyyy HH:mm"))
+        });
+    </script>
+    <script src="{% static 'book/assets/js/surgery.js' %}"></script>
+    <script src="{% static 'book/assets/js/edit.surgery.js' %}"></script>
+
+</div>
+{% endblock %}

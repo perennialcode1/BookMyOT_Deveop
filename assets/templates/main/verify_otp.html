@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="d-flex flex-column flex-root" id="kt_app_root">
+    <style>
+        body {
+            background-image: url('{% static 'book/assets/media/auth/bg4.jpg' %}');
+            background-size: cover; /* Ensure the background image covers the entire viewport */
+        }
+
+        [data-bs-theme="dark"] body {
+            background-image: url('{% static 'book/assets/media/auth/bg4-dark.jpg' %}');
+        }
+    </style>
+    <img src="{% static 'logo.jpeg' %}" style="width:30%;" class="m-auto mt-8">
+    <div class="d-flex flex-column flex-column-fluid flex-lg-row" style="margin-top: 70px;">
+        <div class="d-flex flex-center w-lg-100 p-2">
+            <div class="card rounded-3 w-md-500px h-md-460px shadow">
+                <!-- Your form content here -->
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="card-body pt-4">
+                        <div class="d-flex flex-wrap gap-5">
+                            <div class="position-relative">
+                                <div class=" p-2 text-center">
+                                    <h6>Please Enter The One Time Password <br> To Verify Your Account</h6>
+                                    <div> 
+                                        <span>A code has been sent to</span>
+                                        <small>{{email}}</small> 
+                                    </div>
+                                    <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2"> 
+                                        <input class="m-2 text-center form-control shadow" type="text" id="first" maxlength="1" name="first" required/> 
+                                        <input class="m-2 text-center form-control shadow" type="text" id="second" maxlength="1" name="second" required/> 
+                                        <input class="m-2 text-center form-control shadow" type="text" id="third" maxlength="1" name="third" required/> 
+                                        <input class="m-2 text-center form-control shadow" type="text" id="fourth" maxlength="1" name="fourth" required/> 
+                                        <input class="m-2 text-center form-control shadow" type="text" id="fifth" maxlength="1" name="fifth" required/> 
+                                        <input class="m-2 text-center form-control shadow" type="text" id="sixth" maxlength="1" name="sixth" required/> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="d-flex justify-content-center mt-5">
+
+                            <button type="submit" id="btnSaveHospital" class="btn btn-primary">
+                                <span class="indicator-label">
+                                    Submit
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <form method="post" action="{% url 'resend_otp' %}">
+                    {% csrf_token %}
+                    <input type="submit" value="Resend OTP" style="border:none; background-color:transparent; color: skyblue;">
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        function OTPInput() {
+            const inputs = document.querySelectorAll("#otp > *[id]");
+            for (let i = 0; i < inputs.length; i++) {
+                inputs[i].addEventListener("keydown", function (event) {
+                    if (event.key === "Backspace") {
+                        inputs[i].value = "";
+                        if (i !== 0) inputs[i - 1].focus();
+                    } else {
+                        // Check if it's the last input field and move to the next one
+                        if (i === inputs.length - 1) {
+                            if (inputs[i].value !== "") {
+                                return true;
+                            }
+                        }
+                        // Allow both numbers and alphabets
+                        inputs[i].value = event.key;
+                        if (i !== inputs.length - 1) inputs[i + 1].focus();
+                        event.preventDefault();
+                    }
+                });
+            }
+        }
+        OTPInput();
+    });
+    
+
+
+
+</script>
+<style>
+    /* CSS styles remain the same */
+    .height-100 {
+        height: 100vh;
+    }
+
+    .card {
+        border: none;
+        box-shadow: 0px 5px 20px 0px #d2dae3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card h6 {
+        color: red;
+        font-size: 20px;
+    }
+
+    .inputs input {
+        width: 40px;
+        height: 40px;
+    }
+
+    input[type="text"]::-webkit-inner-spin-button,
+    input[type="text"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0;
+    }
+
+    .card-2 {
+        background-color: #fff;
+        padding: 10px;
+        width: 350px;
+        height: 100px;
+        bottom: -50px;
+        left: 20px;
+        position: absolute;
+        border-radius: 5px;
+    }
+
+    .card-2 .content {
+        margin-top: 50px;
+    }
+
+    .card-2 .content a {
+        color: red;
+    }
+
+    .form-control:focus {
+        box-shadow: none;
+        border: 2px solid red;
+    }
+</style>
+
+{% endblock %}

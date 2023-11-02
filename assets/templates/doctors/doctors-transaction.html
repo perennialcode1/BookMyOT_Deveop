@@ -1,0 +1,163 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+
+    <div id="kt_app_toolbar" class="app-toolbar pt-4 pt-lg-7 mb-n2 mb-lg-n3">
+        <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack flex-row-fluid">
+            <div class="d-flex flex-stack flex-row-fluid">
+                <div class="d-flex flex-column flex-row-fluid">
+                    <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-1 mb-lg-3 me-2">
+                        <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                        </li>
+                        <li class="breadcrumb-item">
+                            
+                        </li>
+                        <span b-1mtsuay2f9 class="menu-icon-dark">
+                            <i class="fa-solid fa-home me-2"></i></span>Doctors
+                        <li class="breadcrumb-item">
+                            <span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="currentColor"/>
+                                </svg>
+                            </span>
+                        </li>
+                        <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Edit</li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="{% url 'doctors' %}" class="btn btn-flex btn-sm btn-body h-35px bg-body fw-bold">
+                        <i class="bi bi-arrow-left"></i>
+                        Go back to doctors
+
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'doctors/sidebar.html' %}
+    <div class="container-xxl d-flex">
+        <!--begin::Sidebar-->
+        {% block sidebar %}
+        
+        <div class="mb-5 container-xxl" style="margin-top:30px">
+            <div id="paneKYC"  class="card hide card-flush py-4 card123">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h2>
+                            <span class="menu-icon">
+                                <i class="bi bi-cash-stack fs-3 text-danger"></i>
+                            </span>
+                             Transactions
+                        </h2>
+                    </div>
+                    <div>
+                        <a href="{{down}}" target="_blank">
+                            <button class="btn btn-info">Download <i class="bi bi-download fs-3"></i> </button>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card-body pt-0">
+                    <div id="doctors_table_wrapper" class="data_Tables_wrapper dt-boostrap4 no-footer">
+                        <div class="table-responsive">
+
+                            <table class="table table-striped table-bordered blue-table" id="ot_table">
+                                <thead>
+                                    <tr class="text-start fw-bold fs-7 text-uppercase gs-0">
+                                        <th class="text-center w-10px pe-2 sorting_disabled" rowspan="1" colspan="1"
+                                            aria-label="" style="width: 2%;">
+                                            #
+                                        </th>
+                                        <th class="text-center min-w-50px sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_products_table" rowspan="1"
+                                            colspan="1"
+                                            aria-label="SKU: activate to sort column ascending"
+                                            style="width: 20%;">Hospital name</th>
+                                        <th class="text-center min-w-10px sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_products_table" rowspan="1"
+                                            colspan="1"
+                                            aria-label="Qty: activate to sort column ascending"
+                                            style="width: 18%;">name</th>
+                                        <th class="text-center min-w-100px sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_products_table" rowspan="1"
+                                            colspan="1"
+                                            aria-label="SKU: activate to sort column ascending"
+                                            style="width: 14%;">date</th>
+                                        <th class="text-center min-w-70px sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_products_table" rowspan="1"
+                                            colspan="1"
+                                            aria-label="Qty: activate to sort column ascending"
+                                            style="width: 12%;">amount</th>
+                                        <th class="text-center min-w-150px sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_products_table" rowspan="1"
+                                            colspan="1"
+                                            aria-label="Qty: activate to sort column ascending"
+                                            style="width: 13%;">Status</th>
+                                        {% comment %} <th class="text-center min-w-150px sorting" tabindex="0"
+                                            aria-controls="kt_ecommerce_products_table" rowspan="1"
+                                            colspan="1"
+                                            aria-label="Qty: activate to sort column ascending"
+                                            style="width: 6%;">Actions</th> {% endcomment %}
+                                    </tr>
+                                </thead>
+                                    <tbody class="fw-semibold">
+                                        {% for i in transactions %}
+                                        <tr class="odd text-center">
+                                            <td>
+                                                {{forloop.counter}}
+                                            </td>
+                                            <td class="odd pe-0">
+                                                <span class="fw-bold">{{i.name}}</span>
+                                            </td>
+                                            <td class="even pe-0">
+                                                <span class="fw-bold PatientName">{{i.firstname}}</span>
+                                            </td>
+                                            <td class="pe-0">
+                                                <span class="fw-bold">{{i.date}}</span>
+                                            </td>
+                                            <td class="pe-0">
+                                                <span class="fw-bold">{{i.amount}}</span>
+                                            </td>
+                                            <td class="pe-0  elipses-text">
+                                                {% if i.status == 1 %}
+                                                    <span class="fw-bold fs-5 SurgeryName badge badge-success" style="width:; display: inline-block; text-align: center;"> Completed</span>
+                                                {% elif i.status == 2 %}
+                                                    <span class="fw-bold fs-5 SurgeryName badge badge-warning" style="width:; display: inline-block; text-align: center;"> Processing</span>
+                                                {% else %}
+                                                    <span class="fw-bold fs-5 SurgeryName badge badge-danger" style="width:; display: inline-block; text-align: center;"> Rejected</span>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                    <script>
+                        $('#ot_table').DataTable({
+                            "columnDefs": [
+                                { "orderable": false, "targets": [0] }, // Disable sorting for the first column
+                                { "orderable": true, "targets": [1, 2, 3, 4, 5] } // Enable sorting for other columns
+                            ],
+                            "order": [[0, "asc"]] // Sort by the fourth column (date) in descending order initially
+                        });
+                        
+
+                    </script>
+
+                </div>
+    </div>
+
+    {% comment %} assets\static\book\assets\lib\custom\datatables\datatables.bundle.js {% endcomment %}
+    <script src="{% static 'book/assets/js/surgery.js' %}"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    {% endblock sidebar %}
+</div>
+{% endblock %}
+
+</div>
+

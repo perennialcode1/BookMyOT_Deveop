@@ -1,0 +1,419 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div id="kt_app_toolbar" class="app-toolbar pt-4 pt-lg-7 mb-n2 mb-lg-n3">
+	<div id="kt_app_toolbar_container"
+		class="app-container container-xxl d-flex flex-stack flex-row-fluid">
+		<div class="d-flex flex-stack flex-row-fluid">
+			<div class="d-flex flex-column flex-row-fluid">
+				<ul
+					class="breadcrumb breadcrumb-separatorless fw-semibold mb-1 mb-lg-3 me-2">
+					<li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+						<a href="/" class="text-white">
+							<i class="fonticon-home text-gray-700 fs-3"></i>
+						</a>
+					</li>
+					<li class="breadcrumb-item">
+						<span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z"
+									fill="currentColor" />
+							</svg>
+						</span>
+					</li>
+					<li class="breadcrumb-item text-gray-700 fw-bold lh-1">Dashboard</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div><br>
+<div id="kt_app_content" class="app-content">
+	<div class="row g-5 g-xl-10">
+		<div class="col-xl-4 mb-xl-10">
+			<div class="card card-flush h-xl-100">
+				<div class="card-header rounded bgi-no-repeat bgi-size-cover bgi-position-y-top bgi-position-x-center align-items-start h-250px" style="background-image:url({% static 'media/svg/shapes/top-green.png' %}" data-bs-theme="light">
+					<h3 class="card-title align-items-start flex-column text-white pt-15">
+						<span class="fw-bold fs-2x mb-3">Today's Status</span>
+					</h3>
+				</div>
+				<div class="card-body mt-n20">
+
+					<div class="mt-n20 position-relative">
+
+						<div class="row g-3 g-lg-6">
+
+							<div class="col-6">
+
+								<div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
+
+									<div class="symbol symbol-30px me-5 mb-8">
+										<span class="symbol-label">
+											<i class="fa-solid fa-house-chimney-medical fs-2 text-info"></i>
+										</span>
+									</div>
+									<div class="m-0">
+										<span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{HospitalCount}}</span>
+										<span class="text-gray-500 fw-semibold fs-6">Hospital Count</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
+									<div class="symbol symbol-30px me-5 mb-8">
+										<span class="symbol-label">
+											<i class="fa-solid fa-user-doctor fs-2 text-success"></i>
+
+										</span>
+									</div>
+									<!--end::Symbol-->
+
+									<div class="m-0">
+
+										<span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{DoctorsCount}}</span>
+
+										<!--begin::Desc-->
+										<span class="text-gray-500 fw-semibold fs-6">Doctors Count</span>
+
+									</div>
+
+								</div>
+
+							</div>
+
+
+							<div class="col-6">
+
+								<div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
+
+									<div class="symbol symbol-30px me-5 mb-8">
+										<span class="symbol-label">
+											<!--begin::Svg Icon | path: icons/duotune/general/gen020.svg-->
+											<i class="bi bi-clipboard-check fs-2 text-dark"></i>
+										</span>
+									</div>
+									<div class="m-0">
+										<span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{TotalDutyCall}}</span>
+										<span class="text-gray-500 fw-semibold fs-6">Total Duties</span>
+									</div>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
+									<div class="symbol symbol-30px me-5 mb-8">
+										<i b-1mtsuay2f9 class="bi bi-heart-pulse fs-2 text-danger"></i>
+									</div>
+									<div class="m-0">
+										<span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{TotalCases}}</span>
+										<span class="text-gray-500 fw-semibold fs-6">Total Surgeries</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xl-8 mb-5 mb-xl-10">
+			<div class="row g-7 g-xl-10">
+				<div class="col-xl-6 mb-xl-10">
+					<div id="kt_sliders_widget_1_slider" class="card card-flush carousel carousel-custom carousel-stretch slide h-xl-100" data-bs-ride="carousel" data-bs-interval="5000">
+						<div class="card-header pt-5">
+							<h4 class="card-title d-flex align-items-start flex-column">
+								<span class="card-label fw-bold text-gray-800">Surgeries</span>
+								<span class="text-dark mt-1 fw-bold fs-7">{{TodaysCases}} Today's Surgeries</span>
+							</h4>
+							<div class="card-toolbar">
+								<ol class="p-0 m-0 carousel-indicators carousel-indicators-bullet carousel-indicators-active-primary">
+									<li data-bs-target="#kt_sliders_widget_1_slider" data-bs-slide-to="0" class="active ms-1"></li>
+									<li data-bs-target="#kt_sliders_widget_1_slider" data-bs-slide-to="1" class="ms-1"></li>
+									<li data-bs-target="#kt_sliders_widget_1_slider" data-bs-slide-to="2" class="ms-1"></li>
+								</ol>
+							</div>
+						</div>
+						<div class="card-body py-6">
+							<div class="carousel-inner mt-n5">
+								<div class="carousel-item active show">
+									<div class="d-flex align-items-center mb-5">
+										<div class="w-80px flex-shrink-0 me-2">
+											<div class="min-h-auto ms-n3" id="kt_slider_widget_1_chart_1" style="height: 100px"></div>
+										</div>
+										<div class="m-0">
+											<h4 class="fw-bold text-gray-800 mb-3"></h4>
+											<div class="d-flex d-grid gap-5">
+												<div class="d-flex flex-column flex-shrink-0 me-4">
+													<span class="d-flex align-items-center fs-7 fw-bold text-dark mb-2">
+														<span class="svg-icon svg-icon-6 svg-icon-gray-600 me-2">
+															<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="currentColor" />
+																<path d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z" fill="currentColor" />
+															</svg>
+														</span>
+														{{INPROGRESS}} InProgress 
+													</span>
+												</div>
+												<div class="d-flex flex-column flex-shrink-0">
+                                                    <span class="d-flex align-items-center fs-7 fw-bold text-dark mb-2">
+                                                        <span class="svg-icon svg-icon-6 svg-icon-gray-600 me-2">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="currentColor"></rect>
+                                                                <path d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </span>
+                                                        <span id="lblNIGHTDUTYCALL">{{PendingCases}} Pending</span>
+                                                    </span>
+                                                </div>
+											</div>
+											<div class="d-flex d-grid gap-5">
+                                                <div class="d-flex flex-column flex-shrink-0 me-4">
+                                                    <span class="d-flex align-items-center fs-7 fw-bold text-dark mb-2">
+                                                        <span class="svg-icon svg-icon-6 svg-icon-gray-600 me-2">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="currentColor"></rect>
+                                                                <path d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </span>
+                                                        <span id="lblICUDUTYCALL">{{UpcomingCases}} Upcoming </span>
+                                                    </span>
+                                                </div>
+                                                
+												<div class="d-flex flex-column flex-shrink-0">
+													<span class="d-flex align-items-center fs-7 fw-bold text-dark mb-2">
+														<span class="svg-icon svg-icon-6 svg-icon-gray-600 me-2">
+															<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="currentColor" />
+																<path d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z" fill="currentColor" />
+															</svg>
+														</span>
+														{{CompletedCases}} Completed
+													</span>
+												</div>
+                                            </div>
+										</div>
+									</div>
+									<div class="m-0">
+										{% comment %} <a href="#" class="btn btn-sm btn-light me-2 mb-2">Close</a> {% endcomment %}
+										<a href="{% url 'surgeries_list' %}" class="btn btn-sm btn-primary mb-2" >Details</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-6 mb-5 mb-xl-10">
+					<div id="kt_sliders_widget_2_slider" class="card card-flush carousel carousel-custom carousel-stretch slide h-xl-100" data-bs-ride="carousel" data-bs-interval="5500">
+						<div class="card-header pt-5">
+							<h4 class="card-title d-flex align-items-start flex-column">
+								<span class="card-label fw-bold text-gray-800">Duties</span>
+								<span class="text-dark mt-1 fw-bold fs-7">{{TodaysDUTY}} Today's Duties</span>
+							</h4>
+							<div class="card-toolbar">
+								<ol class="p-0 m-0 carousel-indicators carousel-indicators-bullet carousel-indicators-active-success">
+									<li data-bs-target="#kt_sliders_widget_2_slider" data-bs-slide-to="0" class="active ms-1"></li>
+									<li data-bs-target="#kt_sliders_widget_2_slider" data-bs-slide-to="1" class="ms-1"></li>
+									<li data-bs-target="#kt_sliders_widget_2_slider" data-bs-slide-to="2" class="ms-1"></li>
+								</ol>
+							</div>
+						</div>
+						<div class="card-body py-6">
+							<div class="carousel-inner">
+								<div class="carousel-item active show">
+									<div class="d-flex align-items-center mb-9">
+										<div class="symbol symbol-70px symbol-circle me-5">
+											<span class="symbol-label bg-light-success">
+												<span class="svg-icon svg-icon-3x svg-icon-success">
+													<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M16.925 3.90078V8.00077L12.025 10.8008V5.10078L15.525 3.10078C16.125 2.80078 16.925 3.20078 16.925 3.90078ZM2.525 13.5008L6.025 15.5008L10.925 12.7008L6.025 9.90078L2.525 11.9008C1.825 12.3008 1.825 13.2008 2.525 13.5008ZM18.025 19.7008V15.6008L13.125 12.8008V18.5008L16.625 20.5008C17.225 20.8008 18.025 20.4008 18.025 19.7008Z" fill="currentColor" />
+														<path opacity="0.3" d="M8.52499 3.10078L12.025 5.10078V10.8008L7.125 8.00077V3.90078C7.125 3.20078 7.92499 2.80078 8.52499 3.10078ZM7.42499 20.5008L10.925 18.5008V12.8008L6.02499 15.6008V19.7008C6.02499 20.4008 6.82499 20.8008 7.42499 20.5008ZM21.525 11.9008L18.025 9.90078L13.125 12.7008L18.025 15.5008L21.525 13.5008C22.225 13.2008 22.225 12.3008 21.525 11.9008Z" fill="currentColor" />
+													</svg>
+												</span>
+											</span>
+										</div>
+										<div class="m-0">
+											<h4 class="fw-bold text-gray-800 mb-3"></h4>
+											<div class="d-flex d-grid gap-5">
+												<div class="d-flex flex-column flex-shrink-0 me-4">
+													<span class="d-flex align-items-center fs-7 fw-bold text-dark mb-2">
+														<span class="svg-icon svg-icon-6 svg-icon-gray-600 me-2">
+															<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="currentColor" />
+																<path d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z" fill="currentColor" />
+															</svg>
+														</span>
+														{{CODEBLUE}} Code Blue 
+													</span>
+												</div>
+												<div class="d-flex flex-column flex-shrink-0">
+                                                    <span class="d-flex align-items-center fs-7 fw-bold text-dark mb-2">
+                                                        <span class="svg-icon svg-icon-6 svg-icon-gray-600 me-2">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="currentColor"></rect>
+                                                                <path d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </span>
+                                                        <span id="lblNIGHTDUTYCALL">{{DAYDUTYCAL}} Day Duty</span>
+                                                    </span>
+                                                </div>
+											</div>
+											<div class="d-flex d-grid gap-5">
+                                                <div class="d-flex flex-column flex-shrink-0 me-4">
+                                                    <span class="d-flex align-items-center fs-7 fw-bold text-dark mb-2">
+                                                        <span class="svg-icon svg-icon-6 svg-icon-gray-600 me-2">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="currentColor"></rect>
+                                                                <path d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </span>
+                                                        <span id="lblICUDUTYCALL">{{ICUDUTYCALL}} ICU Duty </span>
+                                                    </span>
+                                                </div>
+                                                
+												<div class="d-flex flex-column flex-shrink-0">
+													<span class="d-flex align-items-center fs-7 fw-bold text-dark mb-2">
+														<span class="svg-icon svg-icon-6 svg-icon-gray-600 me-2">
+															<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="5" fill="currentColor" />
+																<path d="M11.9343 12.5657L9.53696 14.963C9.22669 15.2733 9.18488 15.7619 9.43792 16.1204C9.7616 16.5789 10.4211 16.6334 10.8156 16.2342L14.3054 12.7029C14.6903 12.3134 14.6903 11.6866 14.3054 11.2971L10.8156 7.76582C10.4211 7.3666 9.7616 7.42107 9.43792 7.87962C9.18488 8.23809 9.22669 8.72669 9.53696 9.03696L11.9343 11.4343C12.2467 11.7467 12.2467 12.2533 11.9343 12.5657Z" fill="currentColor" />
+															</svg>
+														</span>
+														{{NIGHTDUTYCALL}} NIGHT Duty
+													</span>
+												</div>
+                                            </div>
+										</div>
+									</div>
+									<div class="m-0">
+										{% comment %} <a href="#" class="btn btn-sm btn-light me-2 mb-2">Close</a> {% endcomment %}
+										<a href="{% url 'duties_list' %}" class="btn btn-sm btn-success mb-2" data-bs-toggle="" data-bs-target="">Details</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card border-transparent " data-bs-theme="light">
+				<div class="card-body d-flex ps-xl-15 justify-content-evenly">
+					<button class="btn btn-primary me-5" onclick="showNTAPModal()">Send Notifications to all Physicians <i class="fa-regular fa-comments fw-bold fs-2 ms-2"></i> </button>
+					<button class="btn btn-info me-5" onclick="showNTAHModal()">Send Notifications to all Hospitals <i class="fa-regular fa-comments fw-bold fs-2 ms-2"></i> </button>
+					<!-- <button class="btn btn-warning">Send Notifications to All</button> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<form method = "post" action="{% url 'send_noti_to_all_phys' %}">
+	{% csrf_token %}
+	<div class="modal fade" tabindex="-1" id="sendNotificationToAllPhysciansModel">
+		<div class="modal-dialog">
+			<div class="modal-content rounded">
+				<div class="modal-header pb-0 border-0 justify-content-end">
+					<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+						<span class="svg-icon svg-icon-1">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor"></rect>
+								<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor"></rect>
+							</svg>
+						</span>
+					</div>
+				</div>
+
+				<div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+					<div class="mb-13 text-center">
+						<h1 class="mb-3" id="modelHeader" etype="">Send Notification to all Physicians</h1>
+					</div>
+
+					<div class="d-flex flex-column mb-8 fv-row fv-plugins-icon-container">
+						<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+							<span class="required">Title</span>
+							<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a Title" data-bs-original-title="Specify a Title"></i>
+						</label>
+						<input id="" type="text" class="form-control " placeholder="Title" name="phyTitle" required><br>
+						<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+							<span class="required">Message</span>
+							<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a message" data-bs-original-title="Specify a message"></i>
+						</label>
+						<textarea id="" type="text" class="form-control " placeholder="Message" name="phyMessage" required></textarea>
+						<div class="fv-plugins-message-container invalid-feedback"></div>
+					</div>
+					<div class="d-flex justify-content-end">
+						<button type="reset" class="btn btn-light me-5" data-bs-dismiss="modal" id="btnCancelPEC">
+							<span class="indicator-label">
+								Cancel
+							</span>
+						</button>
+						<button type="submit" class="btn btn-primary" id="btnSaveAnesthesia">
+							<span class="indicator-label">
+								Send
+							</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<form method = "post" action="{% url 'send_noti_to_all_hosp' %}">
+	{% csrf_token %}
+	<div class="modal fade" tabindex="-1" id="sendNotificationToAllHospitalsModel">
+		<div class="modal-dialog">
+			<div class="modal-content rounded">
+				<div class="modal-header pb-0 border-0 justify-content-end">
+					<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+						<span class="svg-icon svg-icon-1">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor"></rect>
+								<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor"></rect>
+							</svg>
+						</span>
+					</div>
+				</div>
+
+				<div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+					<div class="mb-13 text-center">
+						<h1 class="mb-3" id="modelHeader" etype="">Send Notification to all Hospitals</h1>
+					</div>
+
+					<div class="d-flex flex-column mb-8 fv-row fv-plugins-icon-container">
+						<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+							<span class="required">Title</span>
+							<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a Title" data-bs-original-title="Specify a Title"></i>
+						</label>
+						<input id="" type="text" class="form-control " placeholder="Title" name="hosTitle" required><br>
+						<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+							<span class="required">Message</span>
+							<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a message" data-bs-original-title="Specify a message"></i>
+						</label>
+						<textarea id="" type="text" class="form-control " placeholder="Message" name="hosMessage" required></textarea>
+						<div class="fv-plugins-message-container invalid-feedback"></div>
+					</div>
+					<div class="d-flex justify-content-end">
+						<button type="reset" class="btn btn-light me-5" data-bs-dismiss="modal" id="btnCancelPEC">
+							<span class="indicator-label">
+								Cancel
+							</span>
+						</button>
+						<button type="submit" class="btn btn-primary" id="btnSaveAnesthesia">
+							<span class="indicator-label">
+								Send
+							</span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+    <script>
+		 function showNTAPModal(){
+            $('#sendNotificationToAllPhysciansModel').modal('show');
+        }
+		 function showNTAHModal(){
+            $('#sendNotificationToAllHospitalsModel').modal('show');
+        }
+	</script>
+{% endblock %}

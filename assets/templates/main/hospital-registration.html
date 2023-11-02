@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+    <div class="d-flex flex-column flex-root" id="kt_app_root">
+        <style>
+            body {
+                background-image: url('{% static 'book/assets/media/auth/bg4.jpg' %}');
+            }
+
+            [data-bs-theme="dark"] body {
+                background-image: url('{% static 'book/assets/media/auth/bg4-dark.jpg' %}');
+            }
+        </style>
+        <img src="{% static 'logo.jpeg' %}" style="width:30%;" class="m-auto mt-5">
+        <div class="d-flex flex-column flex-column-fluid flex-lg-row" style="margin-top: 70px;">
+            <div class="d-flex flex-center w-lg-100 p-10">
+                <div class="card rounded-3 w-md-650px h-md-460px shadow">
+                    <h1 class="text-center my-5">Hospital Registration</h1>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="card-body pt-4">
+                            <div class="d-flex flex-wrap gap-5">
+                                <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                                    <label class="required form-label">Hospital Name</label>
+                                    <input type="text" id="hospitalname" name="hospitalname" class="form-control mb-2" placeholder="Hospital name" required>
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                {% comment %} <div class="fv-row w-100 flex-md-root">
+                                    <label class="required form-label">Username</label>
+                                    <input type="text" id="username" name="username" class="form-control mb-2" placeholder="Username" required>
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div> {% endcomment %}
+                            </div>
+                            <div class="d-flex flex-wrap gap-5">
+                                <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                                    <label class="required form-label">Mobile</label>
+                                    <input type="text" id="mobile" minlength="10" maxlength="10" name="mobile" class="form-control mb-2" placeholder="Mobile#" required>
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <div class="fv-row w-100 flex-md-root">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" id="email" name="email" class="form-control mb-2" placeholder="Email Id" required>
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                            </div>
+                            {% comment %} <div class="d-flex flex-wrap gap-5">
+                                <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                                    <label class="required form-label">Password</label>
+                                    <input type="password" id="password" name="password" class="form-control mb-2" placeholder="Password" required>
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <div class="fv-row w-100 flex-md-root">
+                                    <label class="required form-label">Confirm Password</label>
+                                    <input type="password" class="form-control mb-2" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" required>
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                            </div> {% endcomment %}
+                            <br>
+                            <p class="text-start fw-bold">Already have an account
+                                 <a href="https://bookmyot.azurewebsites.net/Account/Login" class="text-info"> Sign In</a> 
+                            </p>
+                            <div class="d-flex justify-content-center mt-5">
+                                <button type="submit" id="btnSaveHospital" class="btn btn-primary">
+                                    <span class="indicator-label">
+                                        Submit
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        {% comment %} import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"; {% endcomment %}
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBdfYAjq4IpgwrN_kwpisFE8zcQezgnLKk",
+          authDomain: "bookmyot-3123.firebaseapp.com",
+          projectId: "bookmyot-3123",
+          storageBucket: "bookmyot-3123.appspot.com",
+          messagingSenderId: "672364228982",
+          appId: "1:672364228982:web:c0447df2dc8f881c65ca57"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+      </script>
+    {% endblock %}

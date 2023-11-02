@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+    
+    {% include "doctors/doctors-view-sidebar.html" %}
+    {% block content_view %}
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+<div class="d-flex flex-column flex-column-fluid">
+<div id="kt_app_content" class="app-content ">
+    <div class="form d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework">
+        <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10 me-lg-10">
+            <div class="d-flex flex-column gap-7 gap-lg-10">
+                <div id="hospitalProfile" class="card card-flush py-4">
+                    <div class="card-header r">
+                        <div class="card-title m-">
+                            <span class="menu-icon">
+                                <i class="bi bi-patch-check-fill fs-1 me-2 text-info"></i>
+                            </span>
+                            <h1 class="">Verification</h1>
+                        </div>
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">Status</div>
+                            </div>
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                     
+                                        {% if status == 1 %}
+                                            <label id="lblHospitalName" class="text-warning">: New
+                                                <div class="spinner-border text-warning" style="width:13px; height:13px" role="status"></div>
+                                            </label>
+                                        {% elif status == 2 %}
+                                            <label id="lblHospitalName" class="text-success">: Verified
+                                                <img style="width:50px; margin-left:-20px" src="{% static 'discord-verification-verification.gif' %}">
+                                                
+                                            </label>
+                                        {% else %}
+                                            <label id="lblHospitalName" class="text-danger">: Rejected<i class="bi bi-x-circle-fill ms-1 text-danger"></i></label>
+                                        {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">Comments</div>
+                            </div>
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalUsername">: {{admincommentsonstatus}} </label>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+            </div>
+           
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content_view %}
+{% endblock %}

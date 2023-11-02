@@ -1,0 +1,130 @@
+<div class="d-flex">
+<div id="kt_app_sidebar" class="app-sidebar align-self-start" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '225px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+    <!--begin::Sidebar secondary menu-->
+    <div class="card flex-grow-1 py-5" data-kt-sticky="true" data-kt-sticky-name="app-sidebar-menu-sticky" data-kt-sticky-offset="{default: false, xl: '500px'}" data-kt-sticky-width="225px" data-kt-sticky-left="auto" data-kt-sticky-top="" data-kt-sticky-animation="false" data-kt-sticky-zindex="">
+        <div class=" hover-scroll-y px-1 px-lg-5" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-height="auto" data-kt-scroll-dependencies="#kt_app_header, #kt_app_toolbar, #kt_app_footer" data-kt-scroll-wrappers="#kt_app_main" data-kt-scroll-offset="">
+            <div id="kt_app_sidebar_menu" data-kt-menu="true" class="menu menu-sub-indention menu-rounded menu-column menu-active-bg menu-title-gray-600 menu-icon-gray-400 menu-state-primary menu-arrow-gray-500 fw-semibold fs-6">
+                <div class="menu-item">
+                    <a class="menu-link" href="{% url 'doc_editbtn' pnum %}">
+                        <span class="menu-icon">
+                            <i class="bi bi-person-circle fs-3 text-info"></i>
+                        </span>
+                        <span class="menu-title">Profile</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link" href="{% url 'doctots_add' pnum %}">
+                        <span class="menu-icon">
+                            <i class="bi bi-geo-alt-fill fs-1 text-primary"></i>
+
+                        </span>
+                        <span class="menu-title">Address</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link" href="{% url 'doctots_edit_kyc' pnum %}" >
+                        <span class="menu-icon">
+                            <i class="bi bi-shield-fill-check fs-3 text-warning"></i>
+                        </span>
+                        <span class="menu-title">KYC</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link"  href = "{% url 'doctors_edit_education_details' pnum %}">
+                        <span class="menu-icon">
+                            <i class="bi bi-book fs-3 text-danger"></i>
+                        </span>
+                        <span class="menu-title">Education</span>
+                    </a>
+                </div>
+                {% comment %} <div class="menu-item">
+                    <a class="menu-link" onclick="buttonFoo5()" id="menuAwards">
+                        <span class="menu-icon">
+                            <i class="bi bi-award-fill fs-3 text-primary"></i>
+                        </span>
+                        <span class="menu-title">Awards</span>
+                    </a>
+                </div> {% endcomment %}
+                <div class="menu-item">
+                    <a class="menu-link" href = "{% url 'doctors_edit_professional_info' pnum %}">
+                        <span class="menu-icon">
+                            <i class="bi bi-person-lines-fill fs-3 text-success"></i>
+                        </span>
+                        <span class="menu-title">Professional Info</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link" href="{% url 'doctors_edit_bank_details' pnum %}">
+                        <span class="menu-icon">
+                            <i class="bi bi-bank fs-3 text-dark"></i>
+                        </span>
+                        <span class="menu-title">Bank Details</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link" href = "{% url 'doctors_edit_trasanctions' pnum %}">
+                        <span class="menu-icon">
+                            <i class="bi bi-cash-stack fs-3 text-danger"></i>
+                        </span>
+                        <span class="menu-title">Transactions</span>
+                    </a>
+                </div>
+                {% comment %} <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <i class="bi bi-gear-fill fs-3 text-success"></i>
+                        </span>
+                        <span class="menu-title">Preferences</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion">
+                        <div class="menu-item">
+                            <a class="menu-link" onclick="buttonFoo9()" id="menuLeaves">
+                                <span class="menu-icon">
+                                    <i class="bi bi-door-closed-fill fs-3 text-danger"></i>
+                                </span>
+                                <span class="menu-title">Leaves</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" onclick="buttonFoo10()" id="menuWorkingHours">
+                                <span class="menu-icon">
+                                    <i class="bi bi-stopwatch-fill fs-3 text-warning"></i>
+                                </span>
+                                <span class="menu-title">Working Hours</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" onclick="buttonFoo11()" id="menuOptions">
+                                <span class="menu-icon">
+                                    <i class="bi bi-card-list fs-3 text-success"></i>
+                                </span>
+                                <span class="menu-title">Options</span>
+                            </a>
+                        </div>
+                    </div>
+                </div> {% endcomment %}
+                <div class="menu-item">
+                    <a class="menu-link" href="{% url 'doctors_edit_social_media' pnum %}">
+                        <span class="menu-icon">
+                            <i class="bi bi-twitter fs-3 text-info"></i>
+                        </span>
+                        <span class="menu-title">Social Media Links</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link" href="{% url 'doctors_edit_verify' pnum %}">
+                        <span class="menu-icon">
+                            <i class="bi bi-person-check fs-3 text-success"></i>
+                        </span>
+                        <span class="menu-title">Verfication</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    {% block sidebar %}
+    {% endblock %}
+</div>

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+    
+    {% include "doctors/doctors-view-sidebar.html" %}
+    {% block content_view %}
+{% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> {% endcomment %}
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+<div class="d-flex flex-column flex-column-fluid">
+    <div id="paneAwards" style="margin-top:31px" class="card hide card-flush py-4">
+        <div class="card-header">
+            <div class="card-title">
+                <h2>
+                    <span class="menu-icon">
+                        <i class="bi bi-cash-stack fs-3 text-danger"></i>
+                    </span>
+                    Transactions
+                </h2>
+            </div>
+            <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
+                {% comment %} <button type="button" id="addOT" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addOTModel" style="padding:5px;">
+                    <i class="bi bi-plus" style="font-size:20px;"></i>
+                </button> {% endcomment %}
+            </div>
+        </div>
+        <div class="card-body pt-0">
+            <table class="table table-striped table-bordered dataTable blue-table" id="hospitalOTs_table">
+                <thead>
+                    <tr class="text-start fw-bold fs-7 text-uppercase gs-0">
+                        <th class="min-w-30px text-center" tabindex="0" rowspan="1" colspan="1" style="width: 30px;">#</th>
+                        <th class="text-center min-w-100px" tabindex="0" rowspan="1" colspan="1" style="width: 100px;">Hospital Name</th>
+                        <th class="text-center min-w-70px" tabindex="0" rowspan="1" colspan="1" style="width: 70px;">Date</th>
+                        <th class="text-center min-w-100px" tabindex="0" rowspan="1" colspan="1" style="width: 88.9167px;">Amount</th>
+                        <th class="text-center min-w-200px" tabindex="0" rowspan="1" colspan="1" style="width: 40px;">Status</th>
+                        <th class="text-center min-w-200px" tabindex="0" rowspan="1" colspan="1" style="width: 88.9167px;">Payment Type</th>
+                        {% comment %} <th class="min-w-100px" tabindex="0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 88.9167px;">Actions</th> {% endcomment %}
+                    </tr>
+                </thead>
+                <tbody class="fw-semibold">
+                    {% for i in transactions %}
+                        <tr class=" text-center">
+                            <td class="text-start">
+                                {{forloop.counter}}
+                            </td>
+                            <td class="pe-0">
+                                <span class="fw-bold">{{i.name}}</span>
+                            </td>
+                            <td class="pe-0">
+                                <span class="fw-bold PatientName">{{i.date}}</span>
+                            </td>
+                            <td class="pe-0">
+                                <span class="fw-bold">{{i.amount}}</span>
+                            </td>
+
+                            <td class="pe-0  elipses-text">
+                                {% if i.status == 1 %}
+                                    <span class="fw-bold fs-5 SurgeryName badge badge-success" style="width:; display: inline-block; text-align: center;"> Completed</span>
+                                {% elif i.status == 2 %}
+                                    <span class="fw-bold fs-5 SurgeryName badge badge-warning" style="width:; display: inline-block; text-align: center;"> Processing</span>
+                                {% else %}
+                                    <span class="fw-bold fs-5 SurgeryName badge badge-danger" style="width:; display: inline-block; text-align: center;"> Rejected</span>
+                                {% endif %}
+                            </td>
+                            
+                            <td class="pe-0  elipses-text">
+                                <span class="fw-bold SurgeryName">{{i.paymenttype}} </span>
+                            </td>
+                        </tr>
+                    {% endfor %}
+               </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+            </div>
+            {% comment %} <div b-1mtsuay2f9 id="kt_app_footer" class="app-footer d-flex flex-column flex-md-row flex-center flex-md-stack pb-3">
+                <div b-1mtsuay2f9 class="text-dark order-2 order-md-1">
+                    <span b-1mtsuay2f9 class="text-muted fw-semibold me-1">2023&copy;</span>
+                    <a b-1mtsuay2f9 href="#" target="_blank" class="text-gray-800 text-hover-primary">Book my OT</a>
+                </div>
+            </div> {% endcomment %}
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content_view %}
+{% endblock %}

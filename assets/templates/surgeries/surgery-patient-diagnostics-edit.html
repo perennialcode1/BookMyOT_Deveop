@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div id="kt_app_toolbar" class="app-toolbar pt-4 pt-lg-7 mb-n2 mb-lg-n3">
+    <div id="kt_app_toolbar_container" class="container-xxl d-flex flex-stack flex-row-fluid">
+        <div class="d-flex flex-stack flex-row-fluid">
+            <div class="d-flex flex-column flex-row-fluid">
+                <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-1 mb-lg-3 me-2">
+                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                        <a href="/" class="text-white">
+                            <i class="fonticon-home text-gray-700 fs-3"></i>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </span>
+                    </li>
+                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Surgeries</li>
+                    <li class="breadcrumb-item">
+                        <span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </span>
+                    </li>
+                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Edit</li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <a href="{% url 'surgeries_list' %}" class="btn btn-flex btn-sm btn-body h-35px bg-body fw-bold">
+                    <i class="bi bi-arrow-left"></i>Go back to surgeries
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-xxl d-flex ">
+    <div id="kt_app_sidebar" class="app-sidebar align-self-start" data-kt-drawer="true"
+        data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}"
+        data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '225px'}"
+        data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+        <div class="card flex-grow-1 py-5" data-kt-sticky="true" data-kt-sticky-name="app-sidebar-menu-sticky"
+            data-kt-sticky-offset="{default: false, xl: '500px'}" data-kt-sticky-width="225px"
+            data-kt-sticky-left="auto" data-kt-sticky-top="125px" data-kt-sticky-animation="false"
+            data-kt-sticky-zindex="95">
+            <div class="hover-scroll-y px-1 px-lg-5" data-kt-scroll="true"
+                data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto"
+                data-kt-scroll-dependencies="#kt_app_header, #kt_app_toolbar, #kt_app_footer"
+                data-kt-scroll-wrappers="#kt_app_main" data-kt-scroll-offset="5px" style="height: 362px;">
+                <div id="kt_app_sidebar_menu" data-kt-menu="true" class="
+						menu
+						menu-sub-indention
+						menu-rounded
+						menu-column
+						menu-active-bg
+						menu-title-gray-600
+						menu-icon-gray-400
+						menu-state-primary
+						menu-arrow-gray-500
+						fw-semibold
+						fs-6
+					">
+                    <div class="menu-item">
+                        <a href="{% url 'surgeries_edit_btn' caseid %}" class="menu-link" id="SurgeryDetailsBtn">
+                            <span class="menu-icon"><i class="bi bi-heart-pulse text-primary"></i></span>
+                            <span class="menu-title">Details</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="{% url 'surgery_patient_diagnostics_edit' caseid %}" class="menu-link" id="SurgeryReportsBtn">
+                            <span class="menu-icon"><i class="bi bi-clipboard2-pulse text-success"></i></span>
+                            <span class="menu-title">Patient Diagnostics</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="{% url 'surgery_physician_notes_edit' caseid %}" class="menu-link" id="PhysicianNotesBtn">
+                            <span class="menu-icon"><i class="bi bi-prescription text-info"></i></span>
+                            <span class="menu-title">Physician Notes</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="SurgeryReports" class="card hide card-flush py-4 mt-9 col-9" style="height:420px;">
+
+        <div class="card-header">
+            <div class="card-title">
+                <h2>Patient Diagnostics</h2>
+            </div>
+        </div>
+        <form method = 'post'>
+            {% csrf_token %}
+            <div class="card-body pt-0">
+                <div class="d-flex flex-wrap gap-5">
+                    <div class="fv-row w-100 flex-md-root">
+                        <label class="form-label">Pre Existing Conditions</label>
+                        <select id="preexistingconditions" multiple="multiple" class="form-select"
+                            data-hide-search="true" data-allow-clear="true" data-control="select2"
+                            data-placeholder="Select Pre Existing Conditions" name="preexecon">
+                            <option></option>
+                            {% for i in preexecon_dropdown_data %}
+                                <option value="{{ i.preexistingconditionid }}" {% if i.preexistingconditionid in preexistingconditions %}selected{% endif %}>{{ i.name }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="fv-plugins-message-container invalid-feedback"></div>
+                    </div>
+
+                </div>
+                <div class="d-flex flex-wrap gap-5">
+                    <div class="fv-row w-100 flex-md-root">
+                        <label class="form-label">Blood Pressure</label>
+                        <input type="number" id="bloodpressure" class="form-control mb-2 decimalonly" name="bloodpressure" value="{{bp}}">
+                        <div class="fv-plugins-message-container invalid-feedback"></div>
+                    </div>
+                    <div class="fv-row w-100 flex-md-root">
+                        <label class="form-label">MPG</label>
+                        <select id="mpg"  class="form-select" data-hide-search="true"
+                            data-allow-clear="true" data-control="select2"
+                            data-placeholder="Select MPG" name="mpg">
+                            <option></option>
+                            <option value="MP1"{% if mpg == 'MP1' %} selected {% endif %}>MP1</option>
+                            <option value="MP2"{% if mpg == 'MP2' %} selected {% endif %}>MP2</option>
+                            <option value="MP3"{% if mpg == 'MP3' %} selected {% endif %}>MP3</option>
+                            <option value="MP4"{% if mpg == 'MP4' %} selected {% endif %}>MP4</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap gap-5">
+                    <div class="fv-row w-100 flex-md-root">
+                        <label class="form-label">GCS</label>
+                        <input type="text" id="gcs" name="gcs" class="form-control mb-2 decimalonly"
+                            value = {{gcs}}>
+                        <div class="fv-plugins-message-container invalid-feedback"></div>
+                    </div>
+                    <div class="fv-row w-100 flex-md-root mt-10">
+                        <div
+                            class="form-check form-check-sm form-check-inline form-check-custom form-check-solid me-3">
+                            <input class="form-check-input" id="xray" name="xray" type="checkbox" {% if xray %}checked{% endif %}> X-Ray
+                        </div>
+                        <div
+                            class="form-check form-check-sm form-check-inline form-check-custom form-check-solid me-3">
+                            <input class="form-check-input" id="ecg" name="ecg" type="checkbox" {% if ecg %}checked{% endif %}> ECG
+                        </div>
+                        <div
+                            class="form-check form-check-sm form-check-inline form-check-custom form-check-solid me-3">
+                            <input class="form-check-input" id="twodecho" name="twodecho" type="checkbox" {% if twodecho %}checked{% endif %}> 2D Echo
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end me-5">
+                <a href="{% url 'surgeries_list' %}">
+                    <button type="reset" class="btn btn-light me-5" data-bs-dismiss="modal" id="">
+                        <span class="indicator-label">
+                            Cancel
+                        </span>
+                    </button>
+                </a>
+                <input class="btn btn-primary" type="submit">
+            </div>
+        </form>
+  
+    </div>
+
+
+    <script src="{% static 'book/assets/js/surgery.js' %}"></script>
+    <script src="{% static 'book/assets/js/edit.surgery.js' %}"></script>
+
+</div>
+{% endblock %}

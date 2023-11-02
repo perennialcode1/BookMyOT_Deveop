@@ -1,0 +1,158 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<br><br>
+<div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack flex-row-fluid">
+    <div class="d-flex flex-stack flex-row-fluid">
+        <div class="d-flex flex-column flex-row-fluid">
+            <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-1 mb-lg-3 me-2">
+                <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                    <a href="/" class="text-white">
+                        <i class="fonticon-home text-gray-700 fs-3"></i>
+                    </a>
+                </li>
+                <li class="breadcrumb-item">
+                    <span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="currentColor" />
+                        </svg>
+                    </span>
+                </li>
+                <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Hospitals</li>
+                <li class="breadcrumb-item">
+                    <span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="currentColor" />
+                        </svg>
+                    </span>
+                </li>
+                <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Add</li>
+            </ul>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+            <a href="{% url 'hospital' %}" class="btn btn-flex btn-sm btn-body h-35px bg-body fw-bold">
+                <i class="bi bi-arrow-left"></i>Go back to hospitals
+            </a>
+        </div>
+    </div>
+</div>
+</div>
+          
+        </div>
+    </div>
+</div>
+<div class="app-container  container-xxl d-flex ">
+    <div id="kt_app_sidebar" class="app-sidebar align-self-start" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '225px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+        <div class="card flex-grow-1 py-5" data-kt-sticky="true" data-kt-sticky-name="app-sidebar-menu-sticky" data-kt-sticky-offset="{default: false, xl: '500px'}" data-kt-sticky-width="225px" data-kt-sticky-left="auto" data-kt-sticky-top="125px" data-kt-sticky-animation="false" data-kt-sticky-zindex="95">
+            <div class="hover-scroll-y px-1 px-lg-5" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="320px" data-kt-scroll-dependencies="#kt_app_header, #kt_app_toolbar, #kt_app_footer" data-kt-scroll-wrappers="#kt_app_main" data-kt-scroll-offset="5px" style="height: 362px;">
+                <div id="kt_app_sidebar_menu" data-kt-menu="true" class="
+						menu
+						menu-sub-indention
+						menu-rounded
+						menu-column
+						menu-active-bg
+						menu-title-gray-600
+						menu-icon-gray-400
+						menu-state-primary
+						menu-arrow-gray-500
+						fw-semibold
+						fs-6
+					">
+                    <div class="menu-item">
+                        <a class="menu-link" id="hospitalProfileBtn">
+                            <span class="menu-icon"><i class="bi bi-list text-primary"></i></span>
+                            <span class="menu-title">Profile</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+        <div class="d-flex flex-column flex-column-fluid">
+            <div id="kt_app_content" class="app-content ">
+                <form id="fmAddHospital" method="post" class="form d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework">
+                    {% csrf_token %}
+                    <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10 me-lg-10">
+                        <div class="d-flex flex-column gap-7 gap-lg-10">
+                            <div id="hospitalProfile" class="card card-flush py-4">
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        <h2>Hospital Information</h2>
+                                    </div>
+                                </div>
+                                <div class="card-body pt-0">
+                                    <div class="d-flex flex-wrap gap-5">
+                                        <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                                            <label class="required form-label">Hospital Name</label>
+                                            <input type="text" id="hospitalname" name="hospitalname" class="form-control mb-2" placeholder="Hospital name" required>
+                                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                                        </div>
+                                        <div class="fv-row w-100 flex-md-root">
+                                            <label class="required form-label">Username</label>
+                                            <input type="text" id="username" name="username" class="form-control mb-2" placeholder="Username" required>
+                                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-5">
+                                        <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                                            <label class="required form-label">Mobile</label>
+                                            <input type="number" id="mobile" name="mobile" class="form-control mb-2" placeholder="Mobile#" required>
+                                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                                        </div>
+                                        <div class="fv-row w-100 flex-md-root">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" id="email" name="email" class="form-control mb-2" placeholder="Email Id" required>
+                                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-5">
+                                        <div class="fv-row w-100 flex-md-root fv-plugins-icon-container">
+                                            <label class="required form-label">Password</label>
+                                            <input type="password" id="password" name="password" class="form-control mb-2" placeholder="Password" required>
+                                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                                        </div>
+                                        <div class="fv-row w-100 flex-md-root">
+                                            <label class="required form-label">Confirm Password</label>
+                                            <input type="password" class="form-control mb-2" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" required>
+                                            <div class="fv-plugins-message-container invalid-feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="fv-row w-50 flex-md-root">
+                                        <label class="form-label">Tier</label>
+                                        <select class="form-select isrequired" data-hide-search="true"
+                                            data-allow-clear="true" data-control="select2"
+                                            data-placeholder="Select Tier" data-val="true"
+                                            data-val-required="Tier is required" id="pacstatus"
+                                            name="tier" required>
+                                            <option></option>
+                                            <option value="1">Metro-City</option>
+                                            <option value="2">City</option>
+                                            <option value="3">Town</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <a href="{% url 'hospital' %}" class="btn btn-light me-5">
+                                Cancel
+                            </a>
+                            <button type="submit" id="btnSaveHospital" class="btn btn-primary">
+                                <span class="indicator-label">
+                                    Add
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                <input name="__RequestVerificationToken" type="hidden" value="CfDJ8ObDC0Lz9o9Egdv1rK4FhCpzajVhehrEWv7JS2TXqPGZPEkQzRmUlLhueVkF9G4qgIROOrroSMnOfXOHg29MlA0VtTY3LZNAqFV_UWDvGCnliR1aEpPdh10x2cFEOpJdZy_A9ylFK89GaVA7nt11gRY" /></form>
+            </div>
+        </div>
+    </div>
+</div>
+
+                
+{% endblock %}

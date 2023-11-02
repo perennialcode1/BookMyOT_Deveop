@@ -1,0 +1,187 @@
+<div b-1mtsuay2f9 class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+    <div b-1mtsuay2f9 class="app-container container-xxl d-flex">
+        <div b-1mtsuay2f9 class="app-main flex-column flex-row-fluid" id="kt_app_main">
+            <div b-1mtsuay2f9 class="d-flex flex-column flex-column-fluid">
+
+                {% comment %}
+                <script>var hostUrl = "~/";</script>
+                <script src="/lib/custom/vis-timeline/vis-timeline.bundle.js"></script>
+                <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+                <script src="/js/widgets.bundle.js"></script>
+                <script src="/js/custom/widgets.js"></script>
+                <script src="/js/custom/utilities/modals/create-project/files.js"></script>
+                <script src="/js/custom/utilities/modals/create-project/main.js"></script>
+                <script src="/js/site.js"></script> {% endcomment %}
+                <div id="kt_app_toolbar" class="app-toolbar pt-4 pt-lg-7 mb-n2 mb-lg-n3">
+                    <div id="kt_app_toolbar_container"
+                        class="app-container container-xxl d-flex flex-stack flex-row-fluid">
+                        <div class="d-flex flex-stack flex-row-fluid">
+                            <div class="d-flex flex-column flex-row-fluid">
+                                <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-1 mb-lg-3 me-2">
+                                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                                        <a href="/" class="text-white">
+                                            <i class="fonticon-home text-gray-700 fs-3"></i>
+                                        </a>
+                                    <li class="breadcrumb-item">
+                                        <span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z"
+                                                    fill="currentColor" />
+                                            </svg>
+                                        </span>
+                                    </li>
+                                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Doctors</li>
+                                    <li class="breadcrumb-item">
+                                        <span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z"
+                                                    fill="currentColor" />
+                                            </svg>
+                                        </span>
+                                    </li>
+                                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">View</li>
+                                </ul>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <a href="{% url 'doctors' %}"
+                                    class="btn btn-flex btn-sm btn-body h-35px bg-body fw-bold">
+                                    <i class="bi bi-arrow-left"></i>Go back to doctors
+                                </a>
+                                <a href="{% url 'doc_editbtn' pnum %}" class="btn btn-sm btn-flex btn-dark h-35 px-3">
+                                    <span class="svg-icon svg-icon-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            <path
+                                                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z">
+                                            </path>
+                                            <path fill-rule="evenodd"
+                                                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z">
+                                            </path>
+                                        </svg>
+                                    </span>
+                                    Edit
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="app-container  container-xxl d-flex ">
+    <div id="kt_app_sidebar" class="app-sidebar align-self-start" data-kt-drawer="true"
+        data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}"
+        data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '225px'}"
+        data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+        <div class="card flex-grow-1 py-5" data-kt-sticky="true" data-kt-sticky-name="app-sidebar-menu-sticky"
+            data-kt-sticky-offset="{default: false, xl: '500px'}" data-kt-sticky-width="225px"
+            data-kt-sticky-left="auto" data-kt-sticky-top="125px" data-kt-sticky-animation="false"
+            data-kt-sticky-zindex="95">
+            <div class="hover-scroll-y px-1 px-lg-5" data-kt-scroll="true"
+                data-kt-scroll-activate="{default: false, lg: true}" 
+                data-kt-scroll-dependencies="#kt_app_header, #kt_app_toolbar, #kt_app_footer"
+                data-kt-scroll-wrappers="#kt_app_main" data-kt-scroll-offset="5px" style="height: 430px;">
+                <div id="kt_app_sidebar_menu" data-kt-menu="true"
+                    class="menu menu-sub-indention menu-rounded menu-column menu-active-bg menu-title-gray-600 menu-icon-gray-400 menu-state-primary menu-arrow-gray-500 fw-semibold fs-6">
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'doctors_view' pnum %}">
+                            <span class="menu-icon">
+                                <i class="bi bi-person-circle fs-3 text-info"></i>
+                            </span>
+                            <span class="menu-title">Profile</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'doctors_view_address' pnum %}">
+                            <span class="menu-icon">
+                                <i class="bi bi-geo-alt-fill fs-1 text-primary"></i>
+                            </span>
+                            <span class="menu-title">Address</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'doctors_view_kyc' pnum %}">
+                            <span class="menu-icon">
+                                <i class="bi bi-shield-fill-check fs-3 text-warning"></i>
+                            </span>
+                            <span class="menu-title">KYC</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'doctors_view_education' pnum %}">
+                            <span class="menu-icon">
+                                <i class="bi bi-book fs-3 text-danger"></i>
+                            </span>
+                            <span class="menu-title">Education</span>
+                        </a>
+                    </div>
+                    {% comment %} <div class="menu-item">
+                        <a class="menu-link" href="{% url 'doctors_view_awards' pnum %}">
+                            <span class="menu-icon">
+                                <i class="bi bi-award-fill fs-3 text-primary"></i>
+                            </span>
+                            <span class="menu-title">Awards</span>
+                        </a>
+                    </div> {% endcomment %}
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'doctors_view_personal_info' pnum %}">
+                            <span class="menu-icon">
+                                <i class="bi bi-person-lines-fill fs-3 text-success"></i>
+                            </span>
+                            <span class="menu-title">Professional Info</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'doctors_view_bank' pnum %}">
+                            <span class="menu-icon">
+                                <i class="bi bi-bank fs-3 text-dark"></i>
+                            </span>
+                            <span class="menu-title">Bank Details</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'doctors_view_transaction' pnum %}">
+                            <span class="menu-icon">
+                                <i class="bi bi-cash-stack fs-3 text-danger"></i>
+                            </span>
+                            <span class="menu-title">Transactions</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'doctors_view_verification' pnum %}">
+                            <span class="menu-icon">
+                                <i class="bi bi-person-check fs-3 text-success"></i>
+                            </span>
+                            <span class="menu-title">Verfication</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'doctors_view_near_hospitals' pnum %}">
+                            <span class="menu-icon">
+                                <i class="bi bi-geo-fill fs-3 text-info"></i>
+                            </span>
+                            <span class="menu-title">Near by Hospitals</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'doctors_view_media' pnum %}">
+                            <span class="menu-icon">
+                                <i class="bi bi-twitter fs-3 text-info"></i>
+                            </span>
+                            <span class="menu-title">Social Media Links</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        {% block content_view %}
+        {% endblock content_view %}
+    </div>

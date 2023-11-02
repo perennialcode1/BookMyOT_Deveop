@@ -1,0 +1,167 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+
+    <div id="kt_app_toolbar" class="app-toolbar pt-4 pt-lg-7 mb-n2 mb-lg-n3">
+        <div id="kt_app_toolbar_container"
+            class="app-container container-xxl d-flex flex-stack flex-row-fluid">
+            <div class="d-flex flex-stack flex-row-fluid">
+                <div class="d-flex flex-column flex-row-fluid">
+                    <ul
+                        class="breadcrumb breadcrumb-separatorless fw-semibold mb-1 mb-lg-3 me-2">
+                        <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                            <a href="/" class="text-white">
+                                <i class="fonticon-home text-gray-700 fs-3"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </span>
+                        </li>
+                        <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Config > App-Notification</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% comment %} <div id="kt_app_content" class="app-content">
+    
+        <div class="row g-5 g-xl-10 col-10 m-auto" >
+            <div class="card  card-flush">
+                <br><br>
+               <form method='post'>
+                    {% csrf_token %}
+                    <!-- <h1 style="font-family:'Courier New', Courier, monospace;" class="">Notification To All Active Physician</h1><br> -->
+                    <div class="d-flex">
+                        <input class="form-control" name="title" style="width:300px;" type="text" placeholder="Enter Title">
+                        <input class="form-control ms-9" name="message"  type="text" style="width:500px;" placeholder="Enter message">
+                        <input class="btn btn-primary  ms-auto" type="submit" value="Send Notification">
+                    </div><br>
+               </form>
+            </div>
+        </div><br><br>
+        <div id="ot_table_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered blue-table dataTable no-footer" id="ot_table" aria-describedby="ot_table_info">
+                    <thead>
+                        <tr class="text-start fw-bold fs-7 text-uppercase gs-0">
+                            <th class="w-10px pe-2 sorting_disabled" rowspan="1" colspan="1" aria-label="" style="width: 53.6094px;">#
+                            </th>
+                            <th class="min-w-80px sorting" tabindex="0" aria-controls="ot_table" rowspan="1" colspan="1" aria-label="Duty Number: activate to sort column ascending" style="width: 124.719px;">Title</th>
+                            <th class="min-w-100px sorting" tabindex="0" aria-controls="ot_table" rowspan="1" colspan="1" aria-label="Duty Type: activate to sort column ascending" style="width: 171.156px;">Date</th>
+                            <th class="min-w-10px sorting" tabindex="0" aria-controls="ot_table" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 78.0156px;">Message</th>
+                        </tr>
+                    </thead>
+                    <tbody class="fw-semibold"> 
+                        {% for i in data %}             
+                            <tr class="odd" caseid="320">
+                                <td><span class="fw-bold">{{forloop.counter}}</span></td>
+                                <td class="pe-0">
+                                    <span class="fw-bold">{{i.title}}</span>
+                                </td>
+                                <td class="pe-0">
+                                    <span class="fw-bold PatientName">{{i.notdate}}</span>
+                                </td>
+                                <td class="pe-0">
+                                    <span class="fw-bold">{{i.message}}</span>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> {% endcomment %}
+
+    <div id="kt_app_content" class="app-content">
+    
+        <div class="row g-5 g-xl-10 col-10 m-auto" >
+            <div class="card  card-flush">
+                <br><br>
+               <form method='post'>
+                    {% csrf_token %}
+                    <!-- <h1 style="font-family:'Courier New', Courier, monospace;" class="">Notification To All Active Physician</h1><br> -->
+                    <div class="d-flex">
+                        <input class="form-control" name="title" style="width:300px;" type="text" placeholder="Enter Title">
+                        <input class="form-control ms-9" name="message"  type="text" style="width:500px;" placeholder="Enter message">
+                        <input class="btn btn-primary  ms-auto" type="submit" value="Send Notification">
+                    </div><br>
+               </form>
+            </div>
+        </div>
+        <br><br>
+        <div class="row g-5 g-xl-10" style="margin-bottom:50px;">
+            <div class="card card-flush">
+                <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+                    <div class="card-title">
+                        <div class="d-flex align-items-center position-relative my-1">
+                            <span class="svg-icon svg-icon-1 position-absolute ms-4">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546"
+                                        height="2" rx="1" transform="rotate(45 17.0365 15.1223)"
+                                        fill="currentColor"></rect>
+                                    <path
+                                        d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                            </span>
+                            <input type="text" id="search" class="form-control w-250px ps-14"
+                                placeholder="Search Notofications">
+                        </div>
+                    </div>
+                    <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
+                        <a href="{% url 'config_app_notification' %}" class="btn btn-sm btn-warning"><i
+                                class="fa fa-refresh"></i></a>
+                    </div>
+                </div>
+                <div class="card-body pt-0" style="overflow: auto;">
+                    <table class="table table-striped table-bordered blue-table" id="scrollable-table">
+                        <thead>
+                            <tr class="text-uppercase">
+                                <th class="w-10px pe-2 sorting_disabled text-center" rowspan="1" colspan="1" style="width: 29.8958px;">#
+                                </th>
+                                <th class="min-w-100px sorting text-center" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="SKU: activate to sort column ascending" style="width: 700px;">Title</th>
+                                <th class="min-w-100px sorting text-center" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="SKU: activate to sort column ascending" style="width: 500px;">Date</th>
+                                <th class="min-w-100px sorting text-center" tabindex="0" aria-controls="kt_ecommerce_products_table" rowspan="1" colspan="1" aria-label="SKU: activate to sort column ascending" style="width: 1100px;">Message</th>                                
+                            </tr>
+                        </thead>
+                        <tbody id="table" class="scrollable-content">
+                            {% for i in data %}
+                                <tr class="odd text-center fw-bold">
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{i.title}}</td>
+                                    <td>{{i.notdate}}</td>
+                                    <td>{{i.message}}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row g-5 g-xl-10">
+        </div>
+        <div class="row g-5 g-xl-10">
+        </div>
+    </div>
+    
+    <script>
+        $("#search").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#table tr").filter(function () {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+          });
+    </script>
+    {% comment %} <script src="{% static 'book/assets/js/surgery.js' %}"></script> {% endcomment %}
+    {% endblock %}

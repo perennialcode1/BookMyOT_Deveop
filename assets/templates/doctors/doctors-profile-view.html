@@ -1,0 +1,360 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+    
+    {% include "doctors/doctors-view-sidebar.html" %}
+    {% block content_view %}
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+<div class="d-flex flex-column flex-column-fluid">
+<div id="kt_app_content" class="app-content ">
+    <div class="form d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework">
+        <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10 me-lg-10">
+            <div class="d-flex flex-column gap-7 gap-lg-10">
+                <div id="hospitalProfile" class="card card-flush py-4 ">
+                    <div class="card-header r">
+                        <div class="card-title m-">
+                            <span class="menu-icon me-2">
+                                <i class="bi bi-person-circle fs-3 text-info"></i>
+                            </span>
+                            <h1 class="">Profile</h1>
+                        </div>
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class=" d-flex">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Full Name</div>
+                            </div>
+                            <div class="col-xl-3 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalName" class="fw-bold">: {{fullname}}</label>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Mobile</div>
+                            </div>
+                            <div class="col-xl-3 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalUsername" class="fw-bold">: {{phone}} </label>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="d-flex">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Email address</div>
+                            </div>
+                            <div class="col-xl-3 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalEmail" class="fw-bold">: {{emailid}} </label>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Gender</div>
+                            </div>
+                            <div class="col-xl-3 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    {% if gender == 'M' %}
+                                    <label id="lblHospitalMobile">: Male</label>
+                                    {% elif gender == 'O' %}
+                                    <label id="lblHospitalMobile">: Other</label>
+                                    {% else %}
+                                    <label id="lblHospitalMobile">: Female</label>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="d-flex">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Date of Birth</div>
+                            </div>
+                            <div class="col-xl-3 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{dob}} </label>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Martial Status</div>
+                            </div>
+                            <div class="col-xl-3 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{maritalstatus}} </label>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="d-flex">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Father Name</div>
+                            </div>
+                            <div class="col-xl-3 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{fathername}} </label>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Mother Name</div>
+                            </div>
+                            <div class="col-xl-3 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{mothername}} </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Qualification</div>
+                            </div>
+                            <div class="col-xl-3 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{qualification}} </label>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Experience</div>
+                            </div>
+                            <div class="col-xl-3 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{experience}} </label>
+
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="d-flex">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Reference Contact</div>
+                            </div>
+                            <div class="col-xl-3 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{referencecontact}} </label>
+
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Reg Number</div>
+                            </div>
+                            <div class="col-xl-3 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{regno}} </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Speciality</div>
+                            </div>
+                            <div class="col-xl-3 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{speciality}} </label>
+                                </div>
+                            </div>
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Physician Number</div>
+                            </div>
+                            <div class="col-xl-3 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{pnum}} </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% comment %} <div class="card-body pt-0">
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Full Name</div>
+                            </div>
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalName" class="fw-bold">: {{fullname}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Mobile</div>
+                            </div>
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalUsername" class="fw-bold">: {{phone}} </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Email address</div>
+                            </div>
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalEmail" class="fw-bold">: {{emailid}} </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Gender</div>
+                            </div>
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    {% if gender == 'M' %}
+                                    <label id="lblHospitalMobile">: Male</label>
+                                    {% elif gender == 'O' %}
+                                    <label id="lblHospitalMobile">: Other</label>
+                                    {% else %}
+                                    <label id="lblHospitalMobile">: Female</label>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Date of Birth</div>
+                            </div>
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{dob}} </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Martial Status</div>
+                            </div>
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{maritalstatus}} </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Father Name</div>
+                            </div>
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{fathername}} </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Mother Name</div>
+                            </div>
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{mothername}} </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Qualification</div>
+                            </div>
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{qualification}} </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Experience</div>
+                            </div>
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{experience}} </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Reference Contact</div>
+                            </div>
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{referencecontact}} </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Reg Number</div>
+                            </div>
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{regno}} </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-3">
+                                <div class="fs-6 fw-semibold mt-2 mb-3 input">Speciality</div>
+                            </div>
+                            <div class="col-xl-9 fv-row fv-plugins-icon-container">
+                                <div class="fs-6 fw-semibold mt-2 mb-3">
+                                    <label id="lblHospitalMobile" class="fw-bold">: {{speciality}} </label>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+        </div>
+        {% comment %} <div id="hospitalPhoto" class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 ">
+            <div class="card card-flush py-4">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h2>Photo</h2>
+                    </div>
+                </div>
+                <div class="card-body text-center pt-0">
+                    <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
+                        <div class="image-input-wrapper w-150px h-150px" style="background-image: url(/media/misc/hospitallogo.jpg)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> {% endcomment %}
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+            </div>
+            {% comment %} <div b-1mtsuay2f9 id="kt_app_footer" class="app-footer d-flex flex-column flex-md-row flex-center flex-md-stack pb-3">
+                <div b-1mtsuay2f9 class="text-dark order-2 order-md-1">
+                    <span b-1mtsuay2f9 class="text-muted fw-semibold me-1">2023&copy;</span>
+                    <a b-1mtsuay2f9 href="#" target="_blank" class="text-gray-800 text-hover-primary">Book my OT</a>
+                </div>
+            </div> {% endcomment %}
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        // Select all <input> elements and add the class
+        $('.input').addClass('text-muted min-w-125px w-125px');
+      });
+    </script>
+{% endblock content_view %}
+{% endblock %}

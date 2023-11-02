@@ -1,0 +1,385 @@
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+    
+
+
+<div b-1mtsuay2f9 class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+    <div b-1mtsuay2f9 class="app-container container-xxl d-flex">
+        <div b-1mtsuay2f9 class="app-main flex-column flex-row-fluid" id="kt_app_main">
+            <div b-1mtsuay2f9 class="d-flex flex-column flex-column-fluid">
+              
+                <div id="kt_app_toolbar" class="app-toolbar pt-4 pt-lg-7 mb-n2 mb-lg-n3">
+<div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack flex-row-fluid">
+<div class="d-flex flex-stack flex-row-fluid">
+<div class="d-flex flex-column flex-row-fluid">
+    <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-1 mb-lg-3 me-2">
+        <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+            <a href="/" class="text-white">
+                <i class="fonticon-home text-gray-700 fs-3"></i>
+            </a>
+            <li class="breadcrumb-item">
+                <span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="currentColor" />
+                    </svg>
+                </span>
+            </li>
+            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Hospitals</li>
+            <li class="breadcrumb-item">
+                <span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z" fill="currentColor" />
+                    </svg>
+                </span>
+            </li>
+            <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Edit</li>
+        </ul>
+    </div>
+    <div class="d-flex align-items-center gap-3">
+        <a href="{% url 'hospital' %}" class="btn btn-flex btn-sm btn-body h-35px bg-body fw-bold">
+            <i class="bi bi-arrow-left"></i>Go back to hospitals
+        </a>
+        
+    </div>
+</div>
+</div>
+</div>
+       
+</div>
+</div>
+</div>
+</div>
+<div class="app-container  container-xxl d-flex ">
+    <div id="kt_app_sidebar" class="app-sidebar align-self-start" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '225px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+        <div class="card flex-grow-1 py-5" data-kt-sticky="true" data-kt-sticky-name="app-sidebar-menu-sticky" data-kt-sticky-offset="{default: false, xl: '500px'}" data-kt-sticky-width="225px" data-kt-sticky-left="auto" data-kt-sticky-top="125px" data-kt-sticky-animation="false" data-kt-sticky-zindex="95">
+            <div class="hover-scroll-y px-1 px-lg-5" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="320px" data-kt-scroll-dependencies="#kt_app_header, #kt_app_toolbar, #kt_app_footer" data-kt-scroll-wrappers="#kt_app_main" data-kt-scroll-offset="5px" style="height: 362px;">
+                <div id="kt_app_sidebar_menu" data-kt-menu="true" class="
+						menu
+						menu-sub-indention
+						menu-rounded
+						menu-column
+						menu-active-bg
+						menu-title-gray-600
+						menu-icon-gray-400
+						menu-state-primary
+						menu-arrow-gray-500
+						fw-semibold
+						fs-6
+					">
+                   
+                    <div class="menu-item" onclick="buttonFoo()">
+                        <a class="menu-link" href="{% url 'hospital_profile_edit' hosid %}">
+                            <span class="menu-icon"><i class="bi bi-list text-primary"></i></span>
+                            <span class="menu-title">Profile</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'hospital_details_edit' hosid %}">
+                            <span class="menu-icon"><i class="bi bi-building text-success"></i></span>
+                            <span class="menu-title">Hospital Details</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'hospital_address_edit' hosid %}">
+                            <span class="menu-icon"><i class="bi bi-card-heading text-info"></i></span>
+                            <span class="menu-title">Address</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'hospital_status_edit' hosid %}">
+                            <span class="menu-icon"><i class="bi bi-check-circle text-dark"></i></span>
+                            <span class="menu-title">Status</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'hospital_surgeons_edit' hosid %}">
+                            <span class="menu-icon"><i class="bi bi-file-person text-success"></i></span>
+                            <span class="menu-title">Surgeons</span>
+                        </a>
+                    </div>
+                    <div class="menu-item">
+                        <a class="menu-link" href="{% url 'hospital_equipment_edit' hosid %}">
+                            <span class="menu-icon"><i class="fa fa-toolbox text-primary"></i></span>
+                            <span class="menu-title">Equipment</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+        <div class="d-flex flex-column flex-column-fluid">
+            <div id="kt_app_content" class="app-content ">
+                <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10 me-lg-10">
+                    <div id="hospitalSurgeons" class="card hide card-flush py-4 card123">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <i class="bi bi-file-person fs-1 me-1 text-success"></i>
+                                <h2>Hospital Surgeons</h2>
+                            </div>
+                            <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
+                                <button type="button" onclick = "showAddModal()" class= "btn btn-primary" data-bs-target="#addSurgeonModel" type="button" style="padding:15px;">
+                                    Add
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body pt-0">
+                            <table class="table table-striped dataTable blue-table" id="hospitalSurgeons_table">
+                                <thead>
+                                    <tr class="text-white fw-bold fs-7 text-uppercase gs-0">
+                                        <th class="text-center">#</th>
+                                        <th class="text-center min-w-100px" tabindex="0" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 100px;">Name</th>
+                                        <th class="text-center min-w-200px" tabindex="0" rowspan="1" colspan="1" aria-label="Desc: activate to sort column ascending" style="width: 88.9167px;">Email</th>
+                                        <th class="text-center min-w-100px" tabindex="0" rowspan="1" colspan="1" aria-label="Desc: activate to sort column ascending" style="width: 88.9167px;">Phone</th>
+                                        <th class="text-center min-w-50px" tabindex="0" rowspan="1" colspan="1" aria-label="Code: activate to sort column ascending" style="width: 50px;">Specialist</th>
+                                        <th class="text-center min-w-50px" tabindex="0" rowspan="1" colspan="1" aria-label="Code: activate to sort column ascending" style="width: 50px;">Year</th>
+                                        <th class="text-center min-w-100px" tabindex="0" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 88.9167px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in surgons %}
+                                        <tr class="text-center fw-bold">
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{i.surgonsname}}</td>
+                                            <td>{{i.emailid}}</td>
+                                            <td>{{i.phone}}</td>
+                                            <td>{{i.specialist}}</td>
+                                            <td>{{i.year}}</td>
+                                            <td class="text-end d-flex justify-content-evenly">
+                                                <button class="edit-button">Edit</button>
+                                            </td> 
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                                                          
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Edit Information</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form method="post" action="{% url 'edit_suregon' hosid %}">
+                {% csrf_token %}
+                <input type="text" name="name" class="form-control name-input" />
+                <input type="text"name="email" class="form-control email-input" />
+                <input type="text" class="form-control field3-input" />
+                <input type="text" class="form-control field4-input" />
+                <input type="text" class="form-control field5-input" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary save-button">Save</button>
+            </div>
+        </form>
+      </div>
+    </div>
+</div> 
+
+    <form action="{% url 'hospital_add_surgeons' hosid %}" method = "post">
+        {% csrf_token %}
+        <div class="modal fade show" tabindex="-1" id="addSurgeonModel" aria-modal="true" role="dialog" >
+            <div class="modal-dialog">
+                <div class="modal-content rounded">
+                    <div class="modal-header pb-0 border-0 justify-content-end">
+                        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                            <span class="svg-icon svg-icon-1">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor"></rect>
+                                    <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor"></rect>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+                        <div class="mb-13 text-center">
+                            <h1 class="mb-3" id="modelHeader" etype="">Add Surgeon</h1>
+                        </div>
+
+                        <div class="d-flex flex-column mb-8 fv-row fv-plugins-icon-container">
+                            
+                            <input id="" type="hidden" name="">
+                            
+                            <div class="" style="width:400px;">
+                                <label class="required form-label" for="">Surgeon name</label>
+                                <input name="name" type="text" class="form-control" placeholder="Eg: Jon" required>
+                            </div><br>
+                            <div>
+                                <label class="required form-label" for="">Surgeon email</label>
+                                <input name="email" type="text" class="form-control" placeholder="Eg: jon@gmail.com" required>
+                            </div><br>
+                            <div>
+                                <label class="required form-label" for="">Surgeon phone</label>
+                                <input name="phone" type="text" pattern="[0-9]{10}" id="mobileInput" class="form-control" placeholder="Eg: 1234567890" required>
+                            </div><br>
+                            <div>
+                                <label class="required form-label" for="">Surgeon specialist</label>
+                                <input name="specialist" type="text" class="form-control" placeholder="Surgeon specialist" required>
+                            </div><br>
+                            <label class="required form-label" for="">Surgeon year</label>
+                            <input name="year" type="number" class="form-control" placeholder="Surgeon year" required><br>
+                            <input class="btn btn-primary d-flex m-auto" type="submit">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        function limitInputLength(input, maxLength) {
+            if (input.value.length > maxLength) {
+                input.value = input.value.slice(0, maxLength);
+            }
+        }
+    </script>
+
+    {% comment %} <form method = "post" action="{% url 'edit_suregon' hosid %}">
+        {% csrf_token %}
+        <div class="modal fade" tabindex="-1" id="editSurgeonModel" >
+            <div class="modal-dialog">
+                <div class="modal-content rounded">
+                    <div class="modal-header pb-0 border-0 justify-content-end">
+                        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                            <span class="svg-icon svg-icon-1">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor"></rect>
+                                    <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor"></rect>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+    
+                    <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+                        <div class="mb-13 text-center">
+                            <h1 class="mb-3" id="modelHeader" etype="">Edit Surgeon</h1>
+                        </div>
+    
+                        <div class="d-flex flex-column mb-8 fv-row fv-plugins-icon-container">
+                            <input id="hdnSurgeonId" type="hidden" name="hdnSurgeonId">
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                                <span class="required">Surgeon Name</span>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a Surgeon name" data-bs-original-title="Specify a Surgeon name"></i>
+                            </label>
+                            <input id="surgeonName" type="text" class="form-control " placeholder="Surgeon code" name="surgeonName"><br>
+                        </div>
+                        <div class="d-flex flex-column mb-8 fv-row fv-plugins-icon-container">
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                                <span class="required">Surgeon Email</span>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a Surgeon Email" data-bs-original-title="Specify a Surgeon Email"></i>
+                            </label>
+                            <input id="surgeonEmail" type="text" class="form-control " placeholder="Surgeon code" name="surgeonEmail"><br>
+                        </div>
+                        <div class="d-flex flex-column mb-8 fv-row fv-plugins-icon-container">
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                                <span class="required">Surgeon year</span>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a Surgeon year" data-bs-original-title="Specify a Surgeon year"></i>
+                            </label>
+                            <input id="surgeonYear" type="text" class="form-control " placeholder="Surgeon code" name="surgeonYear"><br>
+                        </div>
+                        <div class="d-flex flex-column mb-8 fv-row fv-plugins-icon-container">
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                                <span class="required">Surgeon Phone</span>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a Surgeon Phone" data-bs-original-title="Specify a Surgeon Phone"></i>
+                            </label>
+                            <input id="surgeonPhone" type="text" class="form-control " placeholder="Surgeon code" name="surgeonPhone"><br>
+                        </div>
+                        <div class="d-flex flex-column mb-8 fv-row fv-plugins-icon-container">
+                            
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                                <span class="required">Surgeon Specialist</span>
+                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a Surgeon Specialist" data-bs-original-title="Specify a Surgeon Specialist"></i>
+                            </label>
+                            <input id="surgeonSpecialist" type="text" class="form-control " placeholder="Surgeon code" name="surgeonSpecialist"><br>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button type="reset" class="btn btn-light me-5" data-bs-dismiss="modal" id="btnCancelPEC">
+                                <span class="indicator-label">
+                                    Cancel
+                                </span>
+                            </button>
+                            <button type="submit" class="btn btn-primary" id="">
+                                <span class="indicator-label">
+                                    Save Changes
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form> {% endcomment %}
+
+
+
+    <script>
+      // Add event listeners for all "Edit" buttons
+const editButtons = document.querySelectorAll('.edit-button');
+const editModal = document.getElementById('editModal');
+const nameInput = editModal.querySelector('.name-input');
+const emailInput = editModal.querySelector('.email-input');
+const field3Input = editModal.querySelector('.field3-input');
+const field4Input = editModal.querySelector('.field4-input');
+const field5Input = editModal.querySelector('.field5-input');
+
+editButtons.forEach((button) => {
+  button.addEventListener('click', (event) => {
+    // Find the parent row of the clicked button
+    const row = event.target.closest('tr');
+
+    // Get the data from the row
+    const name = row.cells[1].textContent;
+    const email = row.cells[2].textContent;
+
+    // Populate the input fields with the data
+    nameInput.value = name;
+    emailInput.value = email;
+
+    // Display the edit modal
+    $('#editModal').modal('show');
+  });
+});
+
+// Add event listener for the "Save" button in the modal
+const saveButton = editModal.querySelector('.save-button');
+saveButton.addEventListener('click', () => {
+  // Update the row with the new values
+  // (you can add this part according to your needs)
+
+  // Hide the edit modal
+  $('#editModal').modal('hide');
+});
+
+// Close the modal when clicking anywhere outside the modal
+$(document).on('click', function (e) {
+  if ($(e.target).is('.modal')) {
+    $('#editModal').modal('hide');
+  }
+});
+
+
+
+    
+        function showAddModal() {
+            $('#addSurgeonModel').modal('show');
+        }
+    </script>
+    
+
+
+{% endblock %}

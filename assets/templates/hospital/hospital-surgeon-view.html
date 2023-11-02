@@ -1,0 +1,88 @@
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+    
+
+{% include 'hospital/hospital_sidebar.html' %}
+{% block hos_sidebar %}
+{% endblock hos_sidebar %}
+
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+<div class="d-flex flex-column flex-column-fluid">
+<div id="kt_app_content" class="app-content ">
+    <div class="form d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework">
+        <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10 me-lg-10">
+            <div class="d-flex flex-column gap-7 gap-lg-10">
+                <div id="hospitalSurgeons" class="card hide card-flush py-4">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="menu-icon">
+                                <i class="bi bi-file-person fs-1 me-1 text-success"></i>
+                            </span>
+                            <h2>Hospital Surgeons</h2>
+                        </div>
+                    </div>
+                    <div class="card-body pt-0">
+                        <table class="table table-striped table-bordered dataTable blue-table" id="hospitalSurgeons_table">
+                            <thead>
+                                <tr class="text-start fw-bold fs-7 text-uppercase gs-0">
+                                    <th style="width: 10px;">#</th>
+                                    <th class="text-center min-w-100px" tabindex="0" rowspan="1" colspan="1" style="width: 100px;">Name</th>
+                                    <th class="text-center min-w-100px" tabindex="0" rowspan="1" colspan="1" style="width: 88.9167px;">Phone</th>
+                                    <th class="text-center min-w-200px" tabindex="0" rowspan="1" colspan="1" style="width: 88.9167px;">Email</th>
+                                    <th class="text-center min-w-50px" tabindex="0" rowspan="1" colspan="1" style="width: 50px;">Specialist</th>
+                                    <th class="text-center min-w-50px" tabindex="0" rowspan="1" colspan="1"  style="width: 50px;">Year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in data %}
+                                <tr class="odd text-center">
+                                    <td class="fw-bold">{{forloop.counter}}</td>
+                                    <td class="pe-0">
+                                        <span class="fw-bold staffsurgonsname">{{i.surgonsname}}</span>
+                                    </td>
+                                        <td class="pe-0">
+                                            <span class="fw-bold staffphone">{{i.phone}}</span>
+                                        </td>
+                                        <td class="pe-0">
+                                            <span class="fw-bold staffemailid">{{i.emailid}}</span>
+                                        </td>
+                                        <td>
+                                            <span class="fw-bold staffspecialist">{{i.specialist}}</span>
+                                        </td>
+                                        <td>
+                                            <span class="fw-bold staffyear">{{i.year}}</span>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<script src="/js/hospital.js"></script>
+<script src="/js/view.hospital.js"></script>
+            </div>
+            <div b-1mtsuay2f9 id="kt_app_footer" class="app-footer d-flex flex-column flex-md-row flex-center flex-md-stack pb-3">
+                <div b-1mtsuay2f9 class="text-dark order-2 order-md-1">
+                    <span b-1mtsuay2f9 class="text-muted fw-semibold me-1">2023&copy;</span>
+                    <a b-1mtsuay2f9 href="#" target="_blank" class="text-gray-800 text-hover-primary">Book my OT</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
