@@ -142,4 +142,26 @@ urlpatterns = [
     
     path('config-app-settings', config_app_settings, name = 'config_app_settings'),
     
+
+    # FAQ'S
+
+    # admin
+    path('get-faq-category', get_faq_category, name='get_faq_category'),
+    path('add-faq-category', admin_add_faq_category_type, name='admin_add_faq_cat_type'),
+    path('get-category-faqs', get_category_faqs, name='get_category_faqs'),
+    path('add-category-faqs', add_category_faq, name='add_category_faq'),
+    path('edit-category-faq', admin_edit_faq_category, name='admin_edit_faq_category'),
+    path('category-faq-edit', admin_edit_category_faq, name='edit_cat_faq'),
+    path('faq-category-delete/<int:id>', faq_category_delete, name='faq_category_delete'),
+    path('category-faq-delete/<int:id>', category_faq_delete, name='category_faq_delete'),
+    path('all-submited-faqs', admin_get_all_submission_faqs, name='admin_get_all_submission_faqs'),
+    path('view-faq/<int:id>', admin_view_faq, name='admin_view_faq'),
+    path('close-ticket/<int:id>', close_ticket, name='close_ticket'),
+
+    # hospital
+    path('hospital-get-faq', hospital_get_faqs, name='hospital_get_faqs'),
+    path('hospoital-category-faqs/<int:id>', get_hos_cat_faqs, name='get_hos_cat_faqs'),
+    path('submit-faq/<str:id>/<int:type>', submit_faq, name='submit_faq'),
+    path('hospital-submited-tickets/<str:hnum>', hospital_get_submited_tickets, name='hospital_get_submited_tickets'),
+    path('hospital-view-ticket/<int:id>', hospital_view_ticket, name='hospital_view_ticket'),
 ]

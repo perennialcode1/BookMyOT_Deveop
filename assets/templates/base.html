@@ -30,6 +30,8 @@
     <script src="{% static 'book/assets/js/site.js' %}" asp-append-version="true"></script>
     <script src="{% static 'book/assets/js/bookmyot.js' %}"></script>
     <link href="{% static 'book/assets/lib/custom/datatables/datatables.bundle.js' %}">
+    <link href="{% static 'book/assets/js/datatables.bundle.js' %}">
+    
 </head>
 
 <body id="kt_app_body" data-kt-app-header-fixed-mobile="true" data-kt-app-toolbar-enabled="true" class="app-default">
@@ -86,7 +88,7 @@
     </div>
     <div class="d-flex flex-column flex-root app-root " id="kt_app_root">
         <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
-            <div id="kt_app_header" class="app-header {% if request.path == '/' %} d-none {% elif request.path == '/hospital-registration' %} d-none {% elif request.path == '/verify-otp' %} d-none {% endif %}" data-kt-sticky="true"
+            <div id="kt_app_header" class="app-header {% if request.path == '/' %} d-none {% elif request.path == '/hospital-registration' %} d-none {% elif request.path == '/verify-otp' %} d-none {% elif request.path == '/hospital-submit-faq' %} d-none {% elif request.path == '/hospital-get-faq' %} d-none {% endif %}" data-kt-sticky="true"
                 data-kt-sticky-activate="{default: false, lg: true}" data-kt-sticky-name="app-header-sticky"
                 data-kt-sticky-offset="{default: false, lg: '300px'}">
                 <div class="app-container container-xxl d-flex align-items-stretch justify-content-between"
@@ -106,13 +108,13 @@
                             </span>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-1 me-lg-13 {% if request.path == '/' %} d-none {% elif request.path == '/hospital-registration' %} d-none  {% elif request.path == '/verify-otp' %} d-none {% endif %}">
+                    <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-1 me-lg-13 {% if request.path == '/' %} d-none {% elif request.path == '/hospital-registration' %} d-none {% elif request.path == '/verify-otp' %} d-none {% elif request.path == '/hospital-submit-faq' %} d-none {% elif request.path == '/hospital-get-faq' %} d-none{% endif %}">
                         <a href="/">
                             <img alt="Logo" src="{% static 'book/assets/media/logos/bookmyot.png' %}" class="theme-light-show" />
                             <img alt="Logo" src="{% static 'book/assets/media/logos/bookmyot.png' %}" class="theme-dark-show" />
                         </a>
                     </div>
-                    <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1 {% if request.path == '/' %} d-none {% elif request.path == '/hospital-registration' %} d-none  {% elif request.path == '/verify-otp' %} d-none {% endif %}"
+                    <div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1 {% if request.path == '/' %} d-none {% elif request.path == '/hospital-registration' %} d-none  {% elif request.path == '/verify-otp' %} d-none {% elif request.path == '/hospital-submit-faq' %} d-none {% elif request.path == '/hospital-get-faq' %} d-none{% endif %}"
                     id="kt_app_header_wrapper">
                     <div class="d-flex align-items-stretch" id="kt_app_header_menu_wrapper">
                         <div class="app-header-menu app-header-mobile-drawer align-items-stretch"
@@ -155,7 +157,7 @@
                                 </div>
                                 <div b-1mtsuay2f9 class="{% if request.path == '/surgeries-list' %}menu-item here show menu-here-bg menu-lg-down-accordion me-0 me-lg-2{% else %}menu-item menu-lg-down-accordion me-0 me-lg-2{% endif %}">
                                     <a b-1mtsuay2f9 href="{% url 'surgeries_list' %}" class="menu-link">
-                                        <span b-1mtsuay2f9 class="menu-icon-danger">
+                                        <span b-1mtsuay2f9 class="menu-icon-danger" >
                                             <i b-1mtsuay2f9 class="bi bi-heart-pulse"></i>
                                         </span>
                                         <span b-1mtsuay2f9 class="menu-title">Surgeries</span>
@@ -331,6 +333,36 @@
                                                                         <span b-1mtsuay2f9 class="fs-7 fw-semibold text-muted">View/Update</span>
                                                                     </span>
                                                                 </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item col-lg-6 ms-3" data-kt-menu-trigger="hover" data-kt-menu-placement="left-start">
+                                                            <a href="#" class="menu-link ">
+                                                                <span b-1mtsuay2f9 class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded w-40px h-40px me-3">
+                                                                    <span b-1mtsuay2f9 class="svg-icon svg-icon-info svg-icon-1">
+                                                                        <i class="fa-solid fa-circle-question fs-1 text-dark"></i>
+                                                                    </span>
+                                                                </span>
+                                                                <span class="d-flex flex-column">
+                                                                    <span b-1mtsuay2f9 class="fs-6 fw-bold text-gray-800">Faq's</span>
+                                                                    <span b-1mtsuay2f9 class="fs-7 fw-semibold text-muted">Category/Questions/Queries</span>
+                                                                </span>
+                                                            </a>
+                                                            <div class="menu-sub menu-sub-dropdown w-175px py-4" style="">
+                                                                <div class="menu-item px-3">
+                                                                    <a href="{% url 'get_faq_category' %}" class="menu-link px-3">
+                                                                        <i class="fa-regular fa-rectangle-list me-2 text-info"></i>Faq Category
+                                                                    </a>
+                                                                </div>
+                                                                <div class="menu-item px-3">
+                                                                    <a href="{% url 'get_category_faqs' %}" class="menu-link px-3">
+                                                                        <i class="fa-solid fa-question me-2 text-info"></i>Faq's
+                                                                    </a>
+                                                                </div>          
+                                                                <div class="menu-item px-3">
+                                                                    <a href="{% url 'admin_get_all_submission_faqs' %}" class="menu-link px-3">
+                                                                        <i class="fa-solid fa-clipboard-question me-2 text-info"></i>Replies
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>

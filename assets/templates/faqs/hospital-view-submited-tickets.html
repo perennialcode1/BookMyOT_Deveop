@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<base href="../../../" />
+	<title>BookMyOT FAQ's</title>
+	<meta charset="utf-8" />
+	<meta name="description"
+		content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
+	<meta name="keywords"
+		content="metronic, bootstrap, bootstrap 5, angular, VueJs, React, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel starter kits, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title"
+		content="Metronic - Bootstrap Admin Template, HTML, VueJS, React, Angular. Laravel, Asp.Net Core, Ruby on Rails, Spring Boot, Blazor, Django, Express.js, Node.js, Flask Admin Dashboard Theme & Template" />
+	<meta property="og:url" content="https://keenthemes.com/metronic" />
+	<meta property="og:site_name" content="Keenthemes | Metronic" />
+	<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
+	{% comment %}
+	<link rel="shortcut icon" href="{% static 'media/logos/favicon.ico' %}" /> {% endcomment %}
+	<!--begin::Fonts(mandatory for all pages)-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+	<!--end::Fonts-->
+	<!--begin::Vendor Stylesheets(used for this page only)-->
+	<link href="{% static 'plugins/custom/datatables/datatables.bundle.css' %}" rel="stylesheet" type="text/css" />
+	<!--end::Vendor Stylesheets-->
+	<!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+	<link href="{% static 'plugins/global/plugins.bundle.css' %}" rel="stylesheet" type="text/css" />
+	<link href="{% static 'css/style.bundle.css' %}" rel="stylesheet" type="text/css" />
+	<!--end::Global Stylesheets Bundle-->
+</head>
+
+<body>
+    <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
+		<!--begin::Page-->
+		<div class="app-page flex-column flex-column-fluid" id="kt_app_page">
+			<!--begin::Wrapper-->
+			<div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+
+				<!--begin::Main-->
+				<div class="app-main flex-column flex-row-fluid mt-6" id="kt_app_main">
+					<!--begin::Content wrapper-->
+					<div class="d-flex flex-column flex-column-fluid">
+						<!--begin::Toolbar-->
+						<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+							<!--begin::Toolbar container-->
+							<div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
+								<!--begin::Page title-->
+								<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+									<!--begin::Title-->
+									<h1
+										class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+										Faq Extended</h1>
+										{% comment %} <a href="{% url 'submit_faq' 'h12345' 2 %}">Submit query</a> {% endcomment %}
+									<!--end::Title-->
+									<!--begin::Breadcrumb-->
+									<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+										<!--begin::Item-->
+										<li class="breadcrumb-item text-muted">
+											<a href="" class="text-muted text-hover-primary">Home</a>
+										</li>
+										<!--end::Item-->
+										<!--begin::Item-->
+										<li class="breadcrumb-item">
+											<span class="bullet bg-gray-400 w-5px h-2px"></span>
+										</li>
+										<!--end::Item-->
+										<!--begin::Item-->
+										<li class="breadcrumb-item text-muted">FAQ</li>
+										<!--end::Item-->
+									</ul>
+									<!--end::Breadcrumb-->
+								</div>
+								<!--end::Page title-->
+								<!--begin::Actions-->
+								<div class="d-flex align-items-center gap-2 gap-lg-3">
+
+									<!--begin::Primary button-->
+									{% comment %} <a href="#" class="btn btn-sm fw-bold btn-primary"
+										data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Submit Query</a> 
+										{% endcomment %}
+									<!--end::Primary button-->
+								</div>
+								<!--end::Actions-->
+							</div>
+							<!--end::Toolbar container-->
+						</div>
+                        <div class="card shadow border col-9 m-auto rounded" style="margin-top:40px !important;">
+                            <h2 class="text-center mt-5">Raised Queries</h2>
+                            <table class="table table-responsive table-striped table-hover my-6 fs-5 m-auto border rounded" style="width: 95%;">
+                                <thead class="bg-secondary">
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th class="text-center">Description</th>
+                                        <th class="text-center">Status</th>
+                                        <th class="text-center">Action</th>
+                                    </tr>
+                                    <tbody>
+                                        {% for i in tickets_list %}
+                                            <tr>
+                                                <td class="text-center">{{forloop.counter}}</td>
+                                                <td class="">{{i.description}}</td>
+                                                <td class="text-center">
+                                                    {% if i.isaddressed == False %}
+                                                        <span class="badge badge-danger">Not Solved</span>
+                                                    {% else %}
+                                                        <span class="badge badge-success">Solved</span>
+                                                    {% endif %}
+                                                </td>
+                                                <td class="text-center">   
+                                                    <a href="#" class="btn btn-sm btn-light btn-active-light-primary" [data-kt-menu="true" ]="" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                                    Actions<span class="svg-icon svg-icon-5 m-0"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor"></path>
+                                                    </svg></span></a>  
+                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true" style="">
+                                                        <div class="menu-item px-3">
+                                                            <a href="{% url 'hospital_view_ticket' i.raisedticketsid %}" class="menu-link px-3 editButton">View</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+	<script src="{% static 'plugins/global/plugins.bundle.js' %}"></script>
+	<script src="{% static 'js/scripts.bundle.js' %}"></script>
+	<script src="{% static 'plugins/custom/datatables/datatables.bundle.js' %}"></script>
+
+</body>
+
+</html>

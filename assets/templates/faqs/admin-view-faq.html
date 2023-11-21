@@ -1,0 +1,267 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .reduced-width {
+        width: 160px; /* Adjust the width as needed */
+    }
+</style>
+    <div id="kt_app_toolbar" class="app-toolbar pt-4 pt-lg-7 mb-n2 mb-lg-n3">
+        <div id="kt_app_toolbar_container"
+            class="app-container container-xxl d-flex ">
+            <div class="d-flex ">
+                <div class="d-flex">
+                    <ul
+                        class="breadcrumb breadcrumb-separatorless fw-semibold mb-1 mb-lg-3 me-2">
+                        <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                            <a class="text-white">
+                                <i class="fonticon-home text-gray-700 fs-3"></i>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <span class="svg-icon svg-icon-5 svg-icon-gray-700 mx-n2">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12.6343 12.5657L8.45001 16.75C8.0358 17.1642 8.0358 17.8358 8.45001 18.25C8.86423 18.6642 9.5358 18.6642 9.95001 18.25L15.4929 12.7071C15.8834 12.3166 15.8834 11.6834 15.4929 11.2929L9.95001 5.75C9.5358 5.33579 8.86423 5.33579 8.45001 5.75C8.0358 6.16421 8.0358 6.83579 8.45001 7.25L12.6343 11.4343C12.9467 11.7467 12.9467 12.2533 12.6343 12.5657Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </span>
+                        </li>
+                        <li class="breadcrumb-item text-gray-700 fw-bold lh-1">Dashboard > <a href="{% url 'admin_get_all_submission_faqs' %}" class="mx-2 fw-semibold text-dark"> Submited Queires  </a> > Query Submition Details</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row justify-content-evenly" style="margin-top: 25px !important;">
+        <div class="col-4 ">
+            <div class="card m-auto" >
+                <div class="m-auto mb-4">
+                    <h1 class="text-center mt-4">Query Details</h1>
+                </div>
+                <div class="body text-center">
+                    <table class="table table-responsive fs-5 mb-5" >
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="color: transparent;">........</td>
+                                <td class="text-start fw-light reduced-width">Issue Date</td>
+                                <td>:</td>
+                                <td class="text-start fw-bold">{{faq_1.issuedate}}</td>
+                            </tr>
+                            <tr>
+                                <td style="color: transparent;">........</td>
+                                <td class="text-start fw-light reduced-width">Issue Time</td>
+                                <td>:</td>
+                                <td class="text-start fw-bold">{{faq_1.issuetime}}</td>
+                            </tr>
+                            <tr>
+                                <td style="color: transparent;">........</td>
+                                <td class="text-start fw-light reduced-width">Sender Type</td>
+                                <td>:</td>
+                                <td class="text-start">
+                                    {% if faq_1.phyorhos == 1 %}
+                                        <span class="fs-5 fw-bold text-primary"> Physician</span>
+                                    {% else %}
+                                        <span class="fs-5 fw-bold text-info"> Hospital</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="color: transparent;">........</td>
+                                <td class="text-start fw-light reduced-width">Query</td>
+                                <td>:</td>
+                                <td class="text-start fw-bold">{{faq_1.issue}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+            {% if faq_1.isaddressed == True %}
+                <a href="{% url 'close_ticket' faq_1.raisedticketsid %}" class="d-none">
+                    <button class="btn btn-info mt-3">Query Completed<i class="fa-solid fa-check fs-3 ms-2"></i></button>
+                </a>
+            {% else %}
+                <a href="{% url 'close_ticket' faq_1.raisedticketsid %}">
+                    <button class="btn btn-info mt-3">Query Completed<i class="fa-solid fa-check fs-3 ms-2"></i></button>
+                </a>
+            {% endif %}
+        </div>
+        <div class="card col-7 border-0 rounded" id="kt_drawer_chat_messenger" style="max-height: 550px;">
+            <!--begin::Card header-->
+            <div class="card-header pe-5" id="kt_drawer_chat_messenger_header">
+                <!--begin::Title-->
+                <div class="card-title">
+                    <!--begin::User-->
+                    <div class="d-flex justify-content-center flex-column me-3">
+                        <a href="#" class="fs-4 fw-bold text-gray-900 text-hover-primary me-1 mb-2 lh-1">
+                            {% if faq.phyorhos == 1 %}
+                                {{faq_1.phyname}}
+                            {% else %}
+                                {{faq_1.hosname}}
+                            {% endif %}
+                        </a>
+                        <!--begin::Info-->
+                        <div class="mb-0 lh-1">
+                            <span class="badge badge-success badge-circle w-10px h-10px me-1"></span>
+                            {% comment %} <span class="fs-7 fw-semibold text-muted">Active</span> {% endcomment %}
+                        </div>
+                        <!--end::Info-->
+                    </div>
+                    <!--end::User-->
+                </div>
+                <!--end::Title-->
+                <!--begin::Card toolbar-->
+              
+            </div>
+            <!--end::Card header-->
+            <!--begin::Card body-->
+            <div class="card-body" id="kt_drawer_chat_messenger_body" style="background-color: rgb(206, 206, 206); background-image: url({% static 'bgchat1.jpeg' %});">
+                <!--begin::Messages-->
+                <div class="scroll-y me-n5 pe-5" data-kt-element="messages" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-height="300px" data-kt-scroll-dependencies="#kt_drawer_chat_messenger_header, #kt_drawer_chat_messenger_footer" data-kt-scroll-wrappers="#kt_drawer_chat_messenger_body" data-kt-scroll-offset="0px"  >                    
+                    <!--begin::Message(in)-->
+                    {% for i in faq %}
+                        {% if i.sendertype == 1 %}
+                            <div class="d-flex justify-content-start mb-10">
+                                <!--begin::Wrapper-->
+                                <div class="d-flex flex-column align-items-start">
+                                    <!--begin::User-->
+                                    <div class="d-flex align-items-center mb-2">
+                                        <!--begin::Avatar-->
+                                        <div class="symbol symbol-35px symbol-circle">
+                                            <img class="" src="{% static 'book/assets/media/avatars/blank.png' %}" alt="user">
+                                        </div>
+                                        <!--end::Avatar-->
+                                        <!--begin::Details-->
+                                        <div class="ms-3">
+                                            {% if i.phyorhos == 1 %}
+                                                <span class="fs-5 fw-bold text-gray-900 text-hover-primary me-1"> {{i.phyname}}</span>
+                                            {% else %}
+                                                <span class="fs-5 fw-bold text-gray-900 text-hover-Success me-1"> {{i.hosname}}</span>
+                                            {% endif %}
+                                            {% comment %} <span class="text-muted fs-7 mb-1">{{i.issuetime}}</span> {% endcomment %}
+                                        </div>
+                                        <!--end::Details-->
+                                    </div>
+                                    <!--end::User-->
+                                    <!--begin::Text-->
+                                    <div class=" d-flex flex-column p-5 rounded bg-light-info text-dark fw-semibold mw-lg-400px text-start" data-kt-element="message-text">
+                                        <p class="fs-5">{{i.issue}}</p>
+                                        <sub class="text-start text-muted" style="margin-top:-9px">{{i.issuetime}}</sub>
+                                    </div>
+                                    <!--end::Text-->
+                                </div>
+                                <!--end::Wrapper-->
+                            </div>
+                        {% else %}
+                            <div class="d-flex justify-content-end mb-10">
+                                <!--begin::Wrapper-->
+                                <div class="d-flex flex-column align-items-end">
+                                    <!--begin::User-->
+                                    <div class="d-flex align-items-center mb-2">
+                                        <!--begin::Details-->
+                                        <div class="me-3">
+                                            {% comment %} <span class="text-muted fs-7 mb-1">{{i.issuetime}}</span> {% endcomment %}
+                                            <a class="fs-5 fw-bold text-gray-900 text-hover-primary ms-1">You</a>
+                                        </div>
+                                        <!--end::Details-->
+                                        <!--begin::Avatar-->
+                                        <div class="symbol symbol-35px symbol-circle">
+                                            <img class="" src="{% static '3135715.png' %}" alt="user">
+                                        </div>
+                                        <!--end::Avatar-->
+                                    </div>
+                                    <!--end::User-->
+                                    <!--begin::Text-->
+                                    <div class=" d-flex flex-column p-5 rounded bg-light-primary text-dark fw-semibold mw-lg-400px text-start" data-kt-element="message-text">
+                                        <p class="fs-5">{{i.issue}}</p>
+                                        <sub class="text-start text-muted" style="margin-top:-9px">{{i.issuetime}}</sub>
+                                    </div>
+                                    <!--end::Text-->
+                                </div>
+                                <!--end::Wrapper-->
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    
+                </div>
+                <!--end::Messages-->
+            </div>
+            <!--end::Card body-->
+            <!--begin::Card footer-->
+            <form method='post' id="reply-form" class="{% if faq_1.isaddressed == True %} d-none {% endif %}">
+                {% csrf_token %}
+                <div class="card-footer pt-4" id="kt_drawer_chat_messenger_footer">
+                    <div class="input-group mb-3">
+                        <textarea class="form-control fw-bold" name="message" rows="2" placeholder="Type a message" id="messageTextarea"></textarea>
+                        <button class="btn btn-primary" type="submit" data-kt-element="send" onclick="sendMessage()"><i class="fa-solid fa-paper-plane fs-2"></i></button>
+                      </div>
+                </div>
+            </form>
+            
+            <div class="{% if faq_1.isaddressed == False %} d-none {% endif %} mb-3">
+                <br>
+                <h2 class="text-center text-success">Query was Solved</h2>
+            </div>
+            <!--end::Card footer-->
+        </div>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const submitButton = document.getElementById('submit-reply');
+
+        submitButton.addEventListener('click', function () {
+            const message = document.getElementById('reply-message').value;
+
+            // Use AJAX to send the form data to the server
+            fetch(window.location.href, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({ message: message }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Handle success, update the DOM if needed
+                    console.log('Message sent successfully', data.faq);
+                } else {
+                    // Handle failure
+                    console.error('Failed to send message', data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    });
+</script>
+<script>
+  document.getElementById('messageTextarea').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault(); // Prevent inserting a newline
+      sendMessage();
+    }
+  });
+
+  function sendMessage() {
+    // Add your logic to send the message here
+    document.getElementById('reply-form').submit(); // Assuming your form has an id of 'reply-form'
+  }
+</script>
+
+{% endblock %} 

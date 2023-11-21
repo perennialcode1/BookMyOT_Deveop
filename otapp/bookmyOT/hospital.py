@@ -146,14 +146,17 @@ def hospital_edit_address(request, id):
             
             api1 = f'{domain_name.url}updateHospitalsAddress'
             out1 = {"inputdata":{"address":txtAddress,"city":txtCity,"landmark":txtLandmark,"pincode":txtPincode ,"latitude":txtLatitude,"longitude":txtLongitude,"hosid":id}}
-            requests.post(api1, json = out1)
-            
-            messages.success(request, 'updated successfully...!')
-            Api = f'{domain_name.url}GetHospitalsAddress?hosid={id}'
-            ApiData = requests.get(Api).json()
-            result = ApiData['ResultData']
-            result['hosid'] = id
-            return result
+            a = requests.post(api1, json = out1)
+            print(a.json())
+            if a.json()['Status'] == True:
+                messages.success(request, 'updated successfully...!')
+                Api = f'{domain_name.url}GetHospitalsAddress?hosid={id}'
+                ApiData = requests.get(Api).json()
+                result = ApiData['ResultData']
+                result['hosid'] = id
+                return result
+            else:
+                messages.error(request, a.json()['Message'])
     return result
 
 def hospital_edit_status(request,id):

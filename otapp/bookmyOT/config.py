@@ -4,7 +4,11 @@ import requests
 from django.contrib import messages
 
 class domain_name:
-    url = 'https://bookmyotapitesting.azurewebsites.net/'
+    url = "http://bookmyotservice.pythonanywhere.com/"
+
+# class domain_name_faqs:
+#     url = 'http://127.0.0.1:5000/'
+
 
 
 

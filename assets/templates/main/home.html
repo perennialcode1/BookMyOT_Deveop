@@ -26,24 +26,26 @@
 							</svg>
 						</span>
 					</li>
-					<li class="breadcrumb-item text-gray-700 fw-bold lh-1">Dashboard</li>
+					<li class="breadcrumb-item text-gray-700 fw-bold lh-1 fs-4">Dashboard</li>
 				</ul>
 			</div>
 		</div>
 	</div>
 </div><br>
+
+
 <div id="kt_app_content" class="app-content">
-	<div class="row g-5 g-xl-10">
+	<div class="row">
 		<div class="col-xl-4 mb-xl-10">
-			<div class="card card-flush h-xl-100">
+			<div class="card card-flush h-xl-80">
 				<div class="card-header rounded bgi-no-repeat bgi-size-cover bgi-position-y-top bgi-position-x-center align-items-start h-250px" style="background-image:url({% static 'media/svg/shapes/top-green.png' %}" data-bs-theme="light">
 					<h3 class="card-title align-items-start flex-column text-white pt-15">
-						<span class="fw-bold fs-2x mb-3">Today's Status</span>
+						<span class="fw-bold fs-2x mb-3">Total Status</span>
 					</h3>
 				</div>
 				<div class="card-body mt-n20">
 
-					<div class="mt-n20 position-relative">
+					<div class="mt-n20 position-relatve">
 
 						<div class="row g-3 g-lg-6">
 
@@ -56,11 +58,23 @@
 											<i class="fa-solid fa-house-chimney-medical fs-2 text-info"></i>
 										</span>
 									</div>
+									<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+									<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+									<script src="https://bfintal.github.io/Counter-Up/jquery.counterup.min.js"></script>
+									<script>
+										jQuery(document).ready(function( $ ) {
+											$('.counter').counterUp({
+												delay: 10,
+												time: 2000
+											});
+										});
+									</script>
 									<div class="m-0">
-										<span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{HospitalCount}}</span>
+										<span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1 counter">{{HospitalCount}}</span>
 										<span class="text-gray-500 fw-semibold fs-6">Hospital Count</span>
 									</div>
 								</div>
+								
 							</div>
 							<div class="col-6">
 								<div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
@@ -74,7 +88,7 @@
 
 									<div class="m-0">
 
-										<span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{DoctorsCount}}</span>
+										<span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1 counter">{{DoctorsCount}}</span>
 
 										<!--begin::Desc-->
 										<span class="text-gray-500 fw-semibold fs-6">Doctors Count</span>
@@ -97,7 +111,7 @@
 										</span>
 									</div>
 									<div class="m-0">
-										<span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{TotalDutyCall}}</span>
+										<span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1 counter">{{TotalDutyCall}}</span>
 										<span class="text-gray-500 fw-semibold fs-6">Total Duties</span>
 									</div>
 								</div>
@@ -105,10 +119,10 @@
 							<div class="col-6">
 								<div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
 									<div class="symbol symbol-30px me-5 mb-8">
-										<i b-1mtsuay2f9 class="bi bi-heart-pulse fs-2 text-danger"></i>
+										<i class="fa-solid fa-bed-pulse fs-2" style="color:#fc5319;"></i>
 									</div>
-									<div class="m-0">
-										<span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{TotalCases}}</span>
+									<div class="m-0 mb-3">
+										<span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1 counter">{{TotalCases}}</span>
 										<span class="text-gray-500 fw-semibold fs-6">Total Surgeries</span>
 									</div>
 								</div>
@@ -117,6 +131,37 @@
 					</div>
 				</div>
 			</div>
+
+
+			<div class="card card-flush my-5">
+				<div class="row row g-3 g-lg-6 d-flex p-6">
+					<h1>Total Status</h1>
+					<div class="col-6 my-6" id="button1">
+						<div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
+							<div class="symbol symbol-30px me-5 mb-8">
+								<i class="fa-solid fa-heart-circle-plus fs-2 text-danger"></i>
+							</div>
+							<div class="m-0 mb-3">
+								<span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1 counter">{{TodayHospitals}}</span>
+								<span class="text-gray-500 fw-semibold fs-6">Hospital Registrations</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-6" id="button2">
+						<div class="bg-gray-100 bg-opacity-70 rounded-2 px-6 py-5">
+							<div class="symbol symbol-30px me-5 mb-8">
+								<i class="fa-solid fa-user-plus fs-2 text-primary"></i>
+							</div>
+							<div class="m-0 mb-3">
+								<span class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1 counter">{{TodayPhysicians}}</span>
+								<span class="text-gray-500 fw-semibold fs-6">Physicians Registrations</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
 		</div>
 		<div class="col-xl-8 mb-5 mb-xl-10">
 			<div class="row g-7 g-xl-10">
@@ -204,7 +249,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-xl-6 mb-5 mb-xl-10">
+				<div class="col-xl-6 mb-xl-10">
 					<div id="kt_sliders_widget_2_slider" class="card card-flush carousel carousel-custom carousel-stretch slide h-xl-100" data-bs-ride="carousel" data-bs-interval="5500">
 						<div class="card-header pt-5">
 							<h4 class="card-title d-flex align-items-start flex-column">
@@ -297,117 +342,227 @@
 				</div>
 			</div>
 			<div class="card border-transparent " data-bs-theme="light">
+				<h1 class="text-center mt-3">Notifications <i class="fa-solid fa-comment-dots fs-2 ms-2"></i></h1>
 				<div class="card-body d-flex ps-xl-15 justify-content-evenly">
-					<button class="btn btn-primary me-5" onclick="showNTAPModal()">Send Notifications to all Physicians <i class="fa-regular fa-comments fw-bold fs-2 ms-2"></i> </button>
-					<button class="btn btn-info me-5" onclick="showNTAHModal()">Send Notifications to all Hospitals <i class="fa-regular fa-comments fw-bold fs-2 ms-2"></i> </button>
+					<button class="btn btn-primary me-5" onclick="showNTAPModal()">Physicians <i class="fa-regular fa-comments fw-bold fs-2 ms-2"></i> </button>
+					<button class="btn btn-info me-5" onclick="showNTAHModal()">Hospitals <i class="fa-regular fa-comments fw-bold fs-2 ms-2"></i> </button>
+					<a href="{% url 'admin_get_all_submission_faqs' %}">
+						<button class="btn btn-warning me-5">
+							Received <i class="fa-solid fa-magnifying-glass fw-bold fs-2 ms-2"></i> 
+						</button>
+					</a>
 					<!-- <button class="btn btn-warning">Send Notifications to All</button> -->
+				</div>
+			</div>
+
+			<div class="d-flex justify-content-evenly">
+				<div class="card col-6 mt-5 me-3">
+					<div class="card-header border-0 pt-5">
+						<h3 class="card-title align-items-start flex-column sticky-header">
+							<span class="card-label fw-bold text-dark">New Registrations</span>
+							<span class="text-muted mt-1 fw-semibold fs-7" id="text123"></span>
+						</h3>
+					</div>
+						
+					<div id="card1" class="card123" style="max-height: 300px; overflow-y: auto;">					
+						{% for i in reportshos %}
+							<div class="card-body">
+								<div class="d-flex flex-stack">
+									<div class="symbol symbol-30px me-4">
+										<div class="symbol-label fs-2 fw-semibold bg-info text-inverse-danger">H</div>
+									</div>
+									<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+										<div class="flex-grow-1">
+											<a href="" class="text-gray-800 text-hover-primary fs-6 fw-bold">{{i.hospitalname}}</a>
+											<span class="text-muted fw-semibold d-block fs-7">{{i.email}}</span>
+										</div>
+										<a href="{% url 'hospital_profile_edit' i.hosid %}" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+											<i class="fa-solid fa-arrow-right">
+												<span class="path1"></span>
+												<span class="path2"></span>
+											</i>
+										</a>
+									</div>
+								</div>
+								{% comment %} <div class="separator separator-dashed my-2"></div> {% endcomment %}
+							</div>
+						{% endfor %}
+					</div>
+					<div id="card2" class="card123 " style="max-height: 300px; overflow-y: auto;">
+						{% for i in reportsphy %}
+							<div class="card-body" >
+								<div class="d-flex flex-stack">
+									<div class="symbol symbol-30px me-4">
+										<div class="symbol-label fs-2 fw-semibold bg-danger text-inverse-danger">P</div>
+									</div>
+									<div class="d-flex align-items-center flex-row-fluid flex-wrap">
+										<div class="flex-grow-1 me-2">
+											<a class="text-gray-800 text-hover-primary fs-6 fw-bold">{{i.firstname}}</a>
+											<span class="text-muted fw-semibold d-block fs-7">Speciality: {{i.speciality}}</span>
+										</div>
+										<a href="{% url 'doctors_profile_edit' i.pnum %}" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+											<i class="fa-solid fa-arrow-right">
+												<span class="path1"></span>
+												<span class="path2"></span>
+											</i>
+										</a>
+									</div>
+								</div>
+								{% comment %} <div class="separator separator-dashed my-4"></div> {% endcomment %}
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="card col-6 my-5">
+					<div class="card-header sticky-header align-items-center border-0 mt-4">
+						<h3 class="card-title align-items-start flex-column ">
+							<span class="fw-bold mb-2 text-dark">Today Activities</span>
+							<span class="text-muted fw-semibold fs-7">Latest activities upto last 1hr</span>
+						</h3>
+					</div>
+					<div class="card-body pt-5">
+						<!--begin::Timeline-->
+						<div class="timeline-label" style="max-height: 300px; overflow-y: auto;">
+							<!--begin::Item-->
+							{% for i in activities %}
+								<div class="timeline-item">
+									<div class="timeline-label fw-bold text-gray-800 fs-6">{{i.cretime}}</div>
+									<div class="timeline-badge">
+										{% if i.status == '1' %}
+											<i class="fa fa-genderless text-success fs-1"></i>
+										{% elif i.status == '2' %}
+											<i class="fa fa-genderless text-warning fs-1"></i>
+										{% elif i.status == '3' %}
+											<i class="fa fa-genderless text-info fs-1"></i>
+										{% elif i.status == '4' %}
+											<i class="fa fa-genderless text-primary fs-1"></i>
+										{% elif i.status == '5' %}
+											<i class="fa fa-genderless text-danger fs-1"></i>
+										{% else %}
+											<i class="fa fa-genderless fs-1" style="color:rgb(123, 92, 25);"></i>
+										{% endif %}
+									</div>
+									<!--end::Badge-->
+									<!--begin::Text-->
+									<div class="fw-mormal timeline-content text-dark ps-3">{{i.activity}}</div>
+									<!--end::Text-->
+								</div>
+							{% endfor %}
+							<!--end::Item-->
+						</div>
+						<!--end::Timeline-->
+					</div>
+					<!--end: Card Body-->
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<form method = "post" action="{% url 'send_noti_to_all_phys' %}">
-	{% csrf_token %}
-	<div class="modal fade" tabindex="-1" id="sendNotificationToAllPhysciansModel">
-		<div class="modal-dialog">
-			<div class="modal-content rounded">
-				<div class="modal-header pb-0 border-0 justify-content-end">
-					<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-						<span class="svg-icon svg-icon-1">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor"></rect>
-								<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor"></rect>
-							</svg>
-						</span>
-					</div>
-				</div>
 
-				<div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
-					<div class="mb-13 text-center">
-						<h1 class="mb-3" id="modelHeader" etype="">Send Notification to all Physicians</h1>
+
+	<form method = "post" action="{% url 'send_noti_to_all_phys' %}">
+		{% csrf_token %}
+		<div class="modal fade" tabindex="-1" id="sendNotificationToAllPhysciansModel">
+			<div class="modal-dialog">
+				<div class="modal-content rounded">
+					<div class="modal-header pb-0 border-0 justify-content-end">
+						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+							<span class="svg-icon svg-icon-1">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor"></rect>
+									<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor"></rect>
+								</svg>
+							</span>
+						</div>
 					</div>
 
-					<div class="d-flex flex-column mb-8 fv-row fv-plugins-icon-container">
-						<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-							<span class="required">Title</span>
-							<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a Title" data-bs-original-title="Specify a Title"></i>
-						</label>
-						<input id="" type="text" class="form-control " placeholder="Title" name="phyTitle" required><br>
-						<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-							<span class="required">Message</span>
-							<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a message" data-bs-original-title="Specify a message"></i>
-						</label>
-						<textarea id="" type="text" class="form-control " placeholder="Message" name="phyMessage" required></textarea>
-						<div class="fv-plugins-message-container invalid-feedback"></div>
-					</div>
-					<div class="d-flex justify-content-end">
-						<button type="reset" class="btn btn-light me-5" data-bs-dismiss="modal" id="btnCancelPEC">
-							<span class="indicator-label">
-								Cancel
-							</span>
-						</button>
-						<button type="submit" class="btn btn-primary" id="btnSaveAnesthesia">
-							<span class="indicator-label">
-								Send
-							</span>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</form>
-<form method = "post" action="{% url 'send_noti_to_all_hosp' %}">
-	{% csrf_token %}
-	<div class="modal fade" tabindex="-1" id="sendNotificationToAllHospitalsModel">
-		<div class="modal-dialog">
-			<div class="modal-content rounded">
-				<div class="modal-header pb-0 border-0 justify-content-end">
-					<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-						<span class="svg-icon svg-icon-1">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor"></rect>
-								<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor"></rect>
-							</svg>
-						</span>
-					</div>
-				</div>
+					<div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+						<div class="mb-13 text-center">
+							<h1 class="mb-3" id="modelHeader" etype="">Send Notification to all Physicians</h1>
+						</div>
 
-				<div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
-					<div class="mb-13 text-center">
-						<h1 class="mb-3" id="modelHeader" etype="">Send Notification to all Hospitals</h1>
-					</div>
-
-					<div class="d-flex flex-column mb-8 fv-row fv-plugins-icon-container">
-						<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-							<span class="required">Title</span>
-							<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a Title" data-bs-original-title="Specify a Title"></i>
-						</label>
-						<input id="" type="text" class="form-control " placeholder="Title" name="hosTitle" required><br>
-						<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-							<span class="required">Message</span>
-							<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a message" data-bs-original-title="Specify a message"></i>
-						</label>
-						<textarea id="" type="text" class="form-control " placeholder="Message" name="hosMessage" required></textarea>
-						<div class="fv-plugins-message-container invalid-feedback"></div>
-					</div>
-					<div class="d-flex justify-content-end">
-						<button type="reset" class="btn btn-light me-5" data-bs-dismiss="modal" id="btnCancelPEC">
-							<span class="indicator-label">
-								Cancel
-							</span>
-						</button>
-						<button type="submit" class="btn btn-primary" id="btnSaveAnesthesia">
-							<span class="indicator-label">
-								Send
-							</span>
-						</button>
+						<div class="d-flex flex-column mb-8 fv-row fv-plugins-icon-container">
+							<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+								<span class="required">Title</span>
+								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a Title" data-bs-original-title="Specify a Title"></i>
+							</label>
+							<input id="" type="text" class="form-control " placeholder="Title" name="phyTitle" required><br>
+							<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+								<span class="required">Message</span>
+								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a message" data-bs-original-title="Specify a message"></i>
+							</label>
+							<textarea id="" type="text" class="form-control " placeholder="Message" name="phyMessage" required></textarea>
+							<div class="fv-plugins-message-container invalid-feedback"></div>
+						</div>
+						<div class="d-flex justify-content-end">
+							<button type="reset" class="btn btn-light me-5" data-bs-dismiss="modal" id="btnCancelPEC">
+								<span class="indicator-label">
+									Cancel
+								</span>
+							</button>
+							<button type="submit" class="btn btn-primary" id="btnSaveAnesthesia">
+								<span class="indicator-label">
+									Send
+								</span>
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</form>
+	</form>
+	<form method = "post" action="{% url 'send_noti_to_all_hosp' %}">
+		{% csrf_token %}
+		<div class="modal fade" tabindex="-1" id="sendNotificationToAllHospitalsModel">
+			<div class="modal-dialog">
+				<div class="modal-content rounded">
+					<div class="modal-header pb-0 border-0 justify-content-end">
+						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+							<span class="svg-icon svg-icon-1">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="currentColor"></rect>
+									<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="currentColor"></rect>
+								</svg>
+							</span>
+						</div>
+					</div>
+
+					<div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+						<div class="mb-13 text-center">
+							<h1 class="mb-3" id="modelHeader" etype="">Send Notification to all Hospitals</h1>
+						</div>
+
+						<div class="d-flex flex-column mb-8 fv-row fv-plugins-icon-container">
+							<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+								<span class="required">Title</span>
+								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a Title" data-bs-original-title="Specify a Title"></i>
+							</label>
+							<input id="" type="text" class="form-control " placeholder="Title" name="hosTitle" required><br>
+							<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+								<span class="required">Message</span>
+								<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" aria-label="Specify a message" data-bs-original-title="Specify a message"></i>
+							</label>
+							<textarea id="" type="text" class="form-control " placeholder="Message" name="hosMessage" required></textarea>
+							<div class="fv-plugins-message-container invalid-feedback"></div>
+						</div>
+						<div class="d-flex justify-content-end">
+							<button type="reset" class="btn btn-light me-5" data-bs-dismiss="modal" id="btnCancelPEC">
+								<span class="indicator-label">
+									Cancel
+								</span>
+							</button>
+							<button type="submit" class="btn btn-primary" id="btnSaveAnesthesia">
+								<span class="indicator-label">
+									Send
+								</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
     <script>
 		 function showNTAPModal(){
             $('#sendNotificationToAllPhysciansModel').modal('show');
@@ -415,5 +570,31 @@
 		 function showNTAHModal(){
             $('#sendNotificationToAllHospitalsModel').modal('show');
         }
+	</script>
+	<style>
+		.sticky-header {
+			position: sticky;
+			top: 0;
+			background-color: #fff; /* Optional: You can set a background color */
+			z-index: 1; /* Optional: Adjust the z-index if needed */
+		}
+	</style>
+	<style>
+		.card123 {
+			display: none;
+		}
+	</style>
+	<script>
+		document.getElementById("button1").addEventListener("click", function() {
+			document.getElementById("card1").style.display = "block";
+			document.getElementById("card2").style.display = "none";
+			document.getElementById("text123").textContent  = "Hospital";
+		});
+		
+		document.getElementById("button2").addEventListener("click", function() {
+			document.getElementById("card1").style.display = "none";
+			document.getElementById("card2").style.display = "block";
+			document.getElementById("text123").textContent  = "Physicians";
+		});
 	</script>
 {% endblock %}

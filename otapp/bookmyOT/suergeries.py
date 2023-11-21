@@ -102,10 +102,13 @@ def patient_diagnostics_edit(request, id):
     Diagnostics_result = None
     Diagnostics_URL = requests.get(f'{domain_name.url}GetOTRegisterDetails?caseid={id}').json()
     Diagnostics_result = Diagnostics_URL['ResultData'][0]
-    bp = str(Diagnostics_result['bloodpressure'])
-    parts = bp.split('.')
-    bp = parts[0]
-    Diagnostics_result['bp'] = bp
+    try:
+        bp = str(Diagnostics_result['bloodpressure'])
+        parts = bp.split('.')
+        bp = parts[0]
+        Diagnostics_result['bp'] = bp
+    except:
+        pass
     Pre_Exe_Con_URL = requests.get(f'{domain_name.url}GetPreExistingConditions').json()
     preexecon_dropdown_data = Pre_Exe_Con_URL['ResultData']
     Diagnostics_result['preexecon_dropdown_data'] = preexecon_dropdown_data

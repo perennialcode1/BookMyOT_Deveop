@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="d-flex flex-column flex-root" id="kt_app_root">
+    <style>
+        body {
+            background-image: url('{% static 'book/assets/media/auth/bg4.jpg' %}');
+            background-size: cover; /* Ensure the background image covers the entire viewport */
+        }
+
+        [data-bs-theme="dark"] body {
+            background-image: url('{% static 'book/assets/media/auth/bg4-dark.jpg' %}');
+        }
+    </style>
+    <img src="{% static 'logo.jpeg' %}" style="width:30%;" class="m-auto mt-8">
+    <div class="d-flex flex-column" style="margin-top: 70px;">
+        <div class="d-flex flex-center w-lg-100 p-2">
+            <div class="card rounded-3 w-md-500px h-md-460px shadow">
+                <!-- Your form content here -->
+                <form method="post" class="m-auto">
+                    {% csrf_token %}
+                    <div class="">
+                        <h1 class="text-center my-5 col-12">Submit Your Query</h1><br>
+                        <div class="col-xl-6">
+                            <div class="fs-6 fw-semibold mt-2 mb-3">FAQ Category</div>
+                        </div>
+                        <div class="col-xl-12">
+                            <div class="fs-6 fw-semibold mt-2 mb-3">
+                                <div>
+                                    <select id="slHospitalStatus" name="status" class="form-select" data-dropdown-css-class="w-300px" data-hide-search="true" data-allow-clear="true" data-control="select2" data-placeholder="Select category">
+                                        <option value="" selected>Select category</option>
+                                        {% for i in faqcat %}
+                                            <option value="{{i.faqscategoryid}}" >{{i.name}}</option>
+                                        {% endfor %}
+                                        
+                                    </select>                                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="fs-6 fw-semibold mt-2 mb-3">Description</div>
+                        </div>
+                        <div class="col-xl-12">
+                            <div class="fs-6 fw-semibold mt-2 mb-3">
+                                <div>
+                                    <textarea name="faqDescription" cols="30" rows="3" class="form-control" placeholder="Enter your query"></textarea>                                                    
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" class="btn btn-primary d-flex m-auto my-6">
+                    </div>
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
