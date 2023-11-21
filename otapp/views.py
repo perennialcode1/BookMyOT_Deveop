@@ -80,8 +80,7 @@ def verify_otp(request):
         fourth = request.POST.get('fourth')
         fifth = request.POST.get('fifth')
         sixth = request.POST.get('sixth')
-        # stored_otp = request.session.get('registration_otp')
-        stored_otp = 000000
+        stored_otp = request.session.get('registration_otp')
         user_entered_otp = int(f"{first}{second}{third}{fourth}{fifth}{sixth}")
         # stored_otp = 000000
         try:
